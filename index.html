@@ -812,10 +812,9 @@ em{font-variation-settings:normal}
       <svg class="tmz__plate" aria-hidden="true" focusable="false">
         <defs><mask id="tmzCut" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
           <rect width="100%" height="100%" fill="white"/>
-          <text class="tmz__glyphs tmz__cut" fill="black">GLOW</text>
+          <path class="tmz__cut" fill="black" d="M464 12Q255 12 150.0 -76.0Q45 -164 45 -344Q45 -462 100.5 -541.0Q156 -620 261.0 -660.0Q366 -700 514 -700Q602 -700 679.5 -683.5Q757 -667 816.5 -634.5Q876 -602 909.5 -553.0Q943 -504 943 -439H703Q703 -460 689.0 -477.0Q675 -494 650.0 -505.5Q625 -517 593.0 -523.0Q561 -529 525 -529Q468 -529 425.5 -517.5Q383 -506 354.5 -483.5Q326 -461 312.0 -429.0Q298 -397 298 -356V-332Q298 -273 321.5 -234.5Q345 -196 392.0 -177.5Q439 -159 510 -159Q561 -159 605.0 -168.0Q649 -177 675.5 -195.5Q702 -214 702 -240V-244H493V-384H944V0H804L782 -76Q742 -47 694.0 -27.0Q646 -7 589.0 2.5Q532 12 464 12Z M1066.0 0V-688H1313.0V-189H1759.0V0Z M2262.0 12Q2121.0 12 2018.0 -31.0Q1915.0 -74 1859.0 -153.5Q1803.0 -233 1803.0 -344Q1803.0 -455 1859.0 -535.0Q1915.0 -615 2018.0 -657.5Q2121.0 -700 2262.0 -700Q2404.0 -700 2506.5 -657.5Q2609.0 -615 2665.0 -535.0Q2721.0 -455 2721.0 -344Q2721.0 -233 2665.0 -153.5Q2609.0 -74 2506.5 -31.0Q2404.0 12 2262.0 12ZM2262.0 -159Q2309.0 -159 2347.0 -171.5Q2385.0 -184 2412.0 -207.5Q2439.0 -231 2453.0 -263.0Q2467.0 -295 2467.0 -333V-357Q2467.0 -395 2453.0 -426.5Q2439.0 -458 2412.0 -481.0Q2385.0 -504 2347.0 -516.5Q2309.0 -529 2262.0 -529Q2215.0 -529 2177.0 -516.5Q2139.0 -504 2112.0 -481.0Q2085.0 -458 2071.0 -426.5Q2057.0 -395 2057.0 -357V-333Q2057.0 -295 2071.0 -263.0Q2085.0 -231 2112.0 -207.5Q2139.0 -184 2177.0 -171.5Q2215.0 -159 2262.0 -159Z M2953.0 0 2751.0 -688H3003.0L3085.0 -383Q3092.0 -359 3097.0 -336.0Q3102.0 -313 3106.0 -294.5Q3110.0 -276 3112.0 -265H3119.0Q3121.0 -276 3124.0 -291.0Q3127.0 -306 3130.0 -322.0Q3133.0 -338 3137.0 -354.0Q3141.0 -370 3144.0 -383L3222.0 -688H3523.0L3600.0 -383Q3605.0 -365 3609.5 -343.5Q3614.0 -322 3618.0 -301.0Q3622.0 -280 3625.0 -265H3632.0Q3634.0 -277 3637.5 -292.0Q3641.0 -307 3644.5 -323.0Q3648.0 -339 3652.0 -354.5Q3656.0 -370 3659.0 -383L3742.0 -688H3971.0L3769.0 0H3485.0L3386.0 -387Q3382.0 -404 3377.5 -421.0Q3373.0 -438 3370.0 -452.0Q3367.0 -466 3365.0 -474H3358.0Q3355.0 -462 3351.0 -446.0Q3347.0 -430 3343.5 -414.5Q3340.0 -399 3337.0 -387L3237.0 0Z"/>
         </mask></defs>
         <rect class="tmz__cover" width="100%" height="100%" mask="url(#tmzCut)"/>
-        <text class="tmz__glyphs tmz__meter" fill="none" opacity="0">GLOW</text>
       </svg>
       <img class="tmz__porthole" src="img/u-glow.webp" alt="" aria-hidden="true">
       <p class="tmz__eyebrow label">Scroll · Dein Weg zum</p>
@@ -1381,36 +1380,19 @@ addEventListener('load', () => hasGsap && ScrollTrigger.refresh());
     plate = root.querySelector('.tmz__plate'), photo = root.querySelector('.tmz__photo'),
     porthole = root.querySelector('.tmz__porthole'), caption = root.querySelector('.tmz__caption'),
     eyebrow = root.querySelector('.tmz__eyebrow'),
-    meter = root.querySelector('.tmz__meter'), cut = root.querySelector('.tmz__cut');
-  const APERTURE = 2; // the O in GLOW
-  const word = meter.textContent;
+    cut = root.querySelector('.tmz__cut');
+  // GLOW as outlines (Archivo 900 / wdth 125, letter-spacing -0.02em), font units, y down.
+  // Exact counter of the O from the glyph's inner contour — identical in every browser.
+  const G = {upm:1000, bbox:[45, -700, 3971.0, 12], counter:{"cx": 2262.0, "cy": -344.0, "a": 205.0, "b": 185.0}};
   let K = 20, ox = 0, oy = 0, stageW = 1, stageH = 1, cxU = 0, cyU = 0, aU = 1, bU = 1, dKx = 1, dKy = 1, u1 = .25, apertureFound = false, lastS = 1;
-  function widestGap(inkAtIdx, len){const runs=[];let s=-1;for(let i=0;i<=len;i++){const ink=i<len&&inkAtIdx(i);if(ink&&s<0)s=i;if(!ink&&s>=0){runs.push([s,i]);s=-1}}if(runs.length<2)return null;let best=null;for(let i=1;i<runs.length;i++){const g={start:runs[i-1][1],end:runs[i][0]};if(!best||g.end-g.start>best.end-best.start)best=g}return best&&best.end-best.start>=10?best:null}
-  function scanCounter(extent, fs, baselineY){
-    const PAD=12, cw=Math.ceil(extent.width)+PAD*2, ch=Math.ceil(extent.height)+PAD*2; if(cw<24||ch<24) return null;
-    const cv=document.createElement('canvas'); cv.width=cw; cv.height=ch;
-    const c=cv.getContext('2d',{willReadFrequently:true}); if(!c) return null;
-    const cs=getComputedStyle(meter);
-    c.font=`${cs.fontWeight} expanded ${fs}px ${cs.fontFamily}`; if ('fontStretch' in c) c.fontStretch='expanded';
-    c.textBaseline='alphabetic'; c.fillText(word[APERTURE], PAD, PAD+(baselineY-extent.y));
-    const d=c.getImageData(0,0,cw,ch).data, inkAt=(x,y)=>d[(y*cw+x)*4+3]>128;
-    let top=-1,bottom=-1; for(let y=0;y<ch;y++){for(let x=0;x<cw;x++){if(inkAt(x,y)){if(top<0)top=y;bottom=y;break}}}
-    if(top<0||bottom-top<24) return null;
-    const midY=Math.round((top+bottom)/2), gapX=widestGap(x=>inkAt(x,midY),cw); if(!gapX) return null;
-    const midX=Math.round((gapX.start+gapX.end)/2), gapY=widestGap(y=>inkAt(midX,y),ch); if(!gapY) return null;
-    return {cx:extent.x+(midX-PAD), cy:extent.y+((gapY.start+gapY.end)/2-PAD), a:(gapX.end-gapX.start)/2, b:(gapY.end-gapY.start)/2};
-  }
   function layout(){
-    const w=stage.clientWidth, h=stage.clientHeight, PROBE=100;
-    meter.setAttribute('font-size',PROBE); meter.setAttribute('x',0); meter.setAttribute('y',0);
-    const pw=Math.max(meter.getComputedTextLength(),1), fs=(PROBE*w*.9)/pw;
-    meter.setAttribute('font-size',fs); meter.setAttribute('x',w/2); meter.setAttribute('y',h/2);
-    const box=meter.getBBox(); meter.setAttribute('y',h/2+(h/2-(box.y+box.height/2)));
-    for(const a of ['font-size','x','y']) cut.setAttribute(a, meter.getAttribute(a));
-    const clampS=9000/fs, o=meter.getExtentOfChar(APERTURE);
-    // Counter of Archivo 900 / 125% "O", measured once in Chrome and stored as ratios of the glyph cell.
-    // Safari's canvas ignores font-stretch, so a live raster scan would measure the narrow cut and miss the counter.
-    let counter = (o && o.width > 0) ? {cx:o.x+o.width*.533, cy:o.y+o.height*.4908, a:o.width*.216, b:o.height*.1685} : null;
+    const w=stage.clientWidth, h=stage.clientHeight;
+    const [x0,y0,x1,y1]=G.bbox, iw=x1-x0, ih=y1-y0;
+    const sc=(w*.9)/iw, tx=w/2-(x0+iw/2)*sc, ty=h/2-(y0+ih/2)*sc;
+    cut.setAttribute('transform',`translate(${tx} ${ty}) scale(${sc})`);
+    const fs=G.upm*sc, clampS=9000/fs, C=G.counter;
+    const counter={cx:tx+C.cx*sc, cy:ty+C.cy*sc, a:C.a*sc, b:C.b*sc};
+    const o={x:counter.cx-counter.a, y:counter.cy-counter.b, width:2*counter.a, height:2*counter.b};
     if(counter){
       apertureFound=true; stageW=w; stageH=h; cxU=counter.cx; cyU=counter.cy;
       aU=counter.a*.78; bU=counter.b*.78; dKx=(w/2)*1.45; dKy=(h/2)*1.45;
