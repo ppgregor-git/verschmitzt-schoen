@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>verSchmitzt schön – Kosmetikinstitut Wadersloh · Relaunch-Konzept</title>
+<meta name="description" content="Kosmetikinstitut verSchmitzt schön in Wadersloh: professionelle Gesichtsbehandlungen, Anti-Aging, Wimpern, Brows und Pflege mit System von Beauty Hills.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#15120f; --ink-2:#2a2520; --page:#f5f0e8; --sand:#ebe3d6; --stone:#d8cdbd;
+  --muted:#6e6458; --line:rgba(21,18,15,.12);
+  --champ:#d9bb8f; --champ-2:#c9a36f;
+  --coral:#e4664f; --coral-d:#cf5540;
+  --on-dark:#f5f0e8; --dim-dark:rgba(245,240,232,.62); --line-dark:rgba(245,240,232,.14);
+  --serif:"Fraunces", Georgia, serif;
+  --sans:"Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"DM Mono", ui-monospace, Menlo, monospace;
+  --script:"Caveat", cursive;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --wrap:min(100% - 2*clamp(1.25rem,4vw,3.5rem), 84rem);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font-family:var(--sans);font-size:1.0625rem;line-height:1.6;color:var(--ink);background:var(--page);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:var(--wrap);margin-inline:auto}
+.label{font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase}
+.h1,.h2,.h3{font-family:var(--serif);font-weight:380;letter-spacing:-.025em;line-height:1.02;font-variation-settings:"SOFT" 60,"opsz" 144}
+[class*="serif"],.sbr,.sms__title,.hpl-name,.brk__q,.rev__h,.step h4,.facts b,.bh__stats b,.claim,.vou__t,.form h3,.acc button,.score b,.mq__t span,.mnav a,.big,.step__ring,.vou__row b{font-variation-settings:"SOFT" 60;font-weight:380}
+em{font-variation-settings:"SOFT" 100,"WONK" 1}
+.h1{font-size:clamp(2.7rem,1.3rem + 5.4vw,6.4rem)}
+.h2{font-size:clamp(2.2rem,1.2rem + 3.5vw,4.5rem)}
+.h3{font-size:clamp(1.8rem,1.2rem + 2vw,2.8rem);line-height:1.05}
+em{font-style:italic}
+.lead{font-size:clamp(1.05rem,.95rem + .45vw,1.25rem);line-height:1.6}
+.muted{color:var(--muted)}
+.dark{background:var(--ink);color:var(--on-dark)}
+.dark .muted{color:var(--dim-dark)}
+section{position:relative}
+
+/* buttons */
+.btn{--bg:var(--ink);--fg:var(--page);display:inline-flex;align-items:center;gap:.7rem;padding:1.05rem 1.6rem;border-radius:999px;background:var(--bg);color:var(--fg);text-decoration:none;font-weight:600;font-size:.95rem;letter-spacing:.01em;border:0;cursor:pointer;transition:transform .5s var(--ease),background .4s var(--ease),box-shadow .5s var(--ease);will-change:transform;white-space:nowrap}
+.btn:hover{transform:translateY(-2px);box-shadow:0 18px 36px -18px rgba(0,0,0,.45)}
+.btn .arr{display:inline-grid;place-items:center;width:1.7rem;height:1.7rem;border-radius:50%;background:rgba(255,255,255,.14);transition:transform .5s var(--ease)}
+.btn:hover .arr{transform:translateX(3px) rotate(-45deg)}
+.btn--champ{--bg:var(--champ);--fg:var(--ink)}
+.btn--champ .arr{background:rgba(21,18,15,.1)}
+.btn--champ:hover{--bg:#e6c99d}
+.btn--light{--bg:var(--page);--fg:var(--ink)}
+.btn--light .arr{background:rgba(21,18,15,.08)}
+.btn--coral{--bg:var(--coral);--fg:#fff}
+.btn--coral:hover{--bg:var(--coral-d)}
+.btn--ghost{--bg:transparent;--fg:currentColor;box-shadow:inset 0 0 0 1px currentColor}
+.tlink{position:relative;text-decoration:none;font-weight:600;font-size:.95rem;padding-bottom:.2rem}
+.tlink::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform-origin:left;transition:transform .55s var(--ease)}
+.tlink:hover::after{transform:scaleX(.35)}
+
+/* ---------- header ---------- */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;transition:transform .5s var(--ease)}
+.hdr__bar{position:absolute;inset:0;background:rgba(245,240,232,.86);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);transform:scaleY(0);transform-origin:top;transition:transform .5s var(--ease);border-bottom:1px solid var(--line)}
+.hdr.is-solid .hdr__bar{transform:scaleY(1)}
+.hdr.is-hidden{transform:translateY(-100%)}
+.hdr__in{position:relative;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:76px;width:var(--wrap);margin-inline:auto;color:var(--on-dark);transition:color .4s var(--ease)}
+.hdr.is-solid .hdr__in{color:var(--ink)}
+.logo{position:relative;display:block;width:96px;height:58px}
+.logo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .4s var(--ease)}
+.logo .lw{opacity:1}.logo .lb{opacity:0}
+.hdr.is-solid .logo .lw{opacity:0}.hdr.is-solid .logo .lb{opacity:1}
+.nav{display:flex;gap:2rem;list-style:none}
+.nav a{text-decoration:none;font-size:.92rem;font-weight:500;opacity:.86;position:relative}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:-.3rem;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.nav a:hover{opacity:1}.nav a:hover::after{transform:scaleX(1)}
+.hdr .btn{padding:.75rem 1.2rem;font-size:.88rem}
+.hdr:not(.is-solid) .btn{--bg:var(--page);--fg:var(--ink)}
+.burger{display:none;background:none;border:0;color:inherit;font:600 .9rem var(--sans);cursor:pointer;padding:.5rem}
+.mnav{position:fixed;inset:0;z-index:49;background:var(--ink);color:var(--on-dark);display:flex;flex-direction:column;justify-content:center;padding:6rem 1.5rem 2rem;gap:1rem;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s}
+.mnav.open{opacity:1;visibility:visible}
+.mnav a{font-family:var(--serif);font-size:2.2rem;text-decoration:none;line-height:1.1}
+.mnav .btn{font-family:var(--sans);font-size:1rem;margin-top:1.5rem;align-self:flex-start}
+@media (max-width:980px){.nav,.hdr .btn{display:none}.burger{display:block}.hdr__in{height:64px}.logo{width:80px;height:48px}}
+
+/* ---------- hero (floating cards, after BYQ avenir-hero-7) ---------- */
+.hero{background:var(--ink);color:var(--on-dark);min-height:100svh;display:grid;place-items:center;overflow:hidden;padding:7.5rem 0 5rem;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 55% at 50% 45%,rgba(217,187,143,.14),transparent 70%),radial-gradient(40% 40% at 85% 90%,rgba(228,102,79,.08),transparent 70%)}
+.hero__c{position:relative;z-index:3;text-align:center;max-width:46rem;padding-inline:1.25rem}
+.hero__c .label{color:var(--champ)}
+.hero h1{margin:1.6rem 0 1.5rem}
+.hero h1 em{color:var(--champ)}
+.hero p{color:var(--dim-dark);max-width:33rem;margin-inline:auto}
+.hero__cta{display:flex;flex-wrap:wrap;gap:1.4rem;justify-content:center;align-items:center;margin-top:2.4rem}
+.hero__cta .tlink{color:var(--on-dark)}
+.fc{position:absolute;z-index:1;border-radius:14px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(0,0,0,.8);will-change:transform}
+.fc img{width:100%;height:100%;object-fit:cover}
+.fc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(21,18,15,.25))}
+.fc1{width:clamp(130px,15vw,250px);aspect-ratio:3/4;left:4%;top:16%}
+.fc2{width:clamp(100px,11vw,190px);aspect-ratio:1;left:14%;top:62%}
+.fc3{width:clamp(90px,8vw,130px);aspect-ratio:3/4;left:-1.5%;top:48%}
+.fc4{width:clamp(110px,12vw,200px);aspect-ratio:4/5;right:5%;top:12%}
+.fc5{width:clamp(130px,15vw,250px);aspect-ratio:3/4;right:12%;top:46%}
+.fc6{width:clamp(90px,8vw,130px);aspect-ratio:1;right:-1.5%;top:36%}
+.hero__trust{position:absolute;z-index:3;left:0;right:0;bottom:1.8rem;display:flex;justify-content:center;gap:clamp(1rem,3vw,3rem);flex-wrap:wrap;color:var(--dim-dark);padding-inline:1rem}
+.hero__trust span{display:inline-flex;align-items:center;gap:.55rem}
+.hero__trust span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--champ)}
+@media (max-width:860px){
+  .hero{padding:6.5rem 0 7rem;align-items:start}
+  .hero__c{margin-top:clamp(9rem,40vw,13rem)}
+  .fc1{left:5%;top:5.5rem;width:30vw}.fc4{right:5%;top:6.5rem;width:26vw}
+  .fc2{left:36%;top:4.8rem;width:24vw}
+  .fc3,.fc5,.fc6{display:none}
+  .hero__trust{bottom:1.2rem;gap:.4rem 1.2rem;font-size:.66rem}
+}
+
+/* ---------- marquee ---------- */
+.mq{background:var(--champ);color:var(--ink);overflow:hidden;padding:1.05rem 0;border-block:1px solid rgba(21,18,15,.1)}
+.mq__t{display:flex;width:max-content;animation:mq 38s linear infinite}
+.mq__t span{font-family:var(--serif);font-size:clamp(1.4rem,1.1rem + 1vw,2rem);padding-inline:1.6rem;display:inline-flex;align-items:center;gap:3.2rem;white-space:nowrap}
+.mq__t span::after{content:"✦";font-size:.7em;opacity:.55}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.mq__t{animation:none}}
+
+/* ---------- intro (BYQ scroll-blur-reveal) ---------- */
+.intro{padding:clamp(6rem,12vw,11rem) 0 clamp(5rem,9vw,8rem)}
+.intro__g{display:grid;grid-template-columns:14rem 1fr;gap:3rem}
+.sbr{max-width:30ch;font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,.95rem + 2.3vw,3rem);line-height:1.22;letter-spacing:-.015em;will-change:transform}
+.sbr em{font-style:italic;color:var(--champ-2)}
+.sbr-word{display:inline-block;will-change:opacity,filter,transform}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:clamp(3.5rem,6vw,5.5rem);border-top:1px solid var(--line);padding-top:2rem}
+.facts b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(1.6rem,1.2rem + 1.2vw,2.3rem);line-height:1.1;margin-bottom:.5rem}
+.facts p{color:var(--muted);font-size:.95rem;max-width:22rem}
+@media (max-width:860px){.intro__g{grid-template-columns:1fr;gap:1.5rem}.facts{grid-template-columns:1fr}}
+
+/* ---------- journey (BYQ sticky-media-swap) ---------- */
+.jy{padding:clamp(5rem,9vw,8rem) 0 0}
+.jy__head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:1rem}
+.jy__head .label{color:var(--champ)}
+.jy__head h2{margin-top:1.2rem;max-width:12ch}
+.jy__head p{max-width:24rem}
+.sms{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);column-gap:clamp(2rem,5vw,5rem)}
+.sms__step{display:grid;align-items:center;min-height:100vh}
+.sms__entry{display:grid;grid-template-columns:auto 1fr;column-gap:clamp(1rem,2.4vw,1.75rem);align-items:start;margin:0;padding:.5rem 0;border:0;background:none;font:inherit;text-align:left;cursor:pointer;color:rgba(245,240,232,.28);transition:color .5s var(--ease);outline:none}
+.sms__entry:hover{color:rgba(245,240,232,.55)}
+.sms__entry.is-active{color:var(--on-dark)}
+.sms__entry:focus-visible{outline:2px solid var(--champ);outline-offset:8px;border-radius:.5rem}
+.sms__num{display:inline-block;font-family:var(--mono);font-size:.8rem;line-height:1;padding-top:.75em;transition:color .4s var(--ease);backface-visibility:hidden}
+.sms__entry.is-active .sms__num{color:var(--champ);animation:smsflip .55s var(--ease)}
+@keyframes smsflip{from{transform:rotateX(-90deg)}to{transform:rotateX(0)}}
+.sms__title{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(2rem,1rem + 3vw,3.6rem);line-height:1.05;letter-spacing:-.025em}
+.sms__line{display:block;margin-top:1rem;max-width:36ch;font-size:1rem;line-height:1.6;opacity:.78}
+.sms__tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.2rem}
+.sms__tags i{font-style:normal;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid currentColor;border-radius:99px;padding:.35rem .7rem;opacity:.7}
+.sms__stage{position:relative;min-height:100%}
+.sms__frame{position:sticky;top:1.5rem;height:calc(100vh - 3rem);border-radius:1rem;border:1px solid var(--line-dark);background:#1e1a16;overflow:hidden;isolation:isolate;transform:translateZ(0)}
+.sms__frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform,clip-path,opacity}
+.sms__frame img:not(:first-child){opacity:0}
+.sms__cap{position:absolute;left:1.2rem;bottom:1.2rem;z-index:5;background:rgba(21,18,15,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--on-dark);padding:.55rem .9rem;border-radius:99px}
+.sms__mimg{display:none}
+@media (max-width:768px){
+  .sms{display:block}.sms__stage{display:none}
+  .sms__step{min-height:auto;padding:2.5rem 0;border-top:1px solid var(--line-dark)}
+  .sms__entry{color:var(--on-dark)}
+  .sms__entry .sms__num{color:var(--champ)}
+  .sms__mimg{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:.9rem;margin-top:1.5rem}
+  .jy{padding-bottom:3rem}
+}
+
+/* ---------- services (BYQ hover-peek-list) ---------- */
+.svc{padding:clamp(6rem,11vw,10rem) 0}
+.svc__head{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.svc__head h2{margin-top:1.2rem}
+.svc__head>p{max-width:28rem;justify-self:end}
+.hpl-root{position:relative}
+.hpl-peek{position:absolute;top:0;left:0;z-index:5;width:17rem;aspect-ratio:11/14;border-radius:1rem;overflow:hidden;pointer-events:none;background:var(--sand);border:1px solid var(--line);transform:translate3d(calc(var(--px,0px) - 50%),calc(var(--py,0px) - 50%),0) rotate(var(--tilt,0deg)) scale(var(--peek-scale,.9));opacity:0;transition:opacity .45s var(--ease),transform .5s var(--ease);box-shadow:0 30px 60px -30px rgba(4,4,4,.55);will-change:transform,opacity}
+.hpl-peek.is-peeking{opacity:1;--peek-scale:1}
+.hpl-peek-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .5s var(--ease),transform .9s var(--ease)}
+.hpl-list{list-style:none;border-top:1px solid var(--line)}
+.hpl-row{border-bottom:1px solid var(--line)}
+.hpl-link{position:relative;display:grid;grid-template-columns:3.6rem 1fr auto 1.75rem;align-items:center;gap:1rem;padding:clamp(1rem,2.4vw,1.6rem) .25rem;text-decoration:none;color:var(--ink);outline:none;transition:color .4s var(--ease)}
+.hpl-num{font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;opacity:.4;transition:opacity .4s var(--ease)}
+.hpl-name{position:relative;font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,.95rem + 2.1vw,2.5rem);line-height:1.08;letter-spacing:-.02em;width:fit-content;transition:transform .5s var(--ease)}
+.hpl-name small{font-family:var(--sans);font-size:.85rem;letter-spacing:0;color:var(--muted);display:block;margin-top:.35rem;line-height:1.4;max-width:36rem}
+.hpl-name::after{content:"";position:absolute;left:0;right:0;top:1.05em;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .55s var(--ease)}
+.hpl-meta{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.5;white-space:nowrap;justify-self:end;transition:opacity .4s var(--ease)}
+.hpl-arrow{font-size:1.2rem;justify-self:end;opacity:0;transform:translateX(-.4rem);transition:opacity .4s var(--ease),transform .5s var(--ease),color .4s var(--ease)}
+.hpl-link:hover .hpl-name,.hpl-link:focus-visible .hpl-name{transform:translateX(.9rem)}
+.hpl-link:hover .hpl-name::after,.hpl-link:focus-visible .hpl-name::after{transform:scaleX(1)}
+.hpl-link:hover .hpl-num,.hpl-link:focus-visible .hpl-num{opacity:1}
+.hpl-link:hover .hpl-meta,.hpl-link:focus-visible .hpl-meta{opacity:.85}
+.hpl-link:hover .hpl-arrow,.hpl-link:focus-visible .hpl-arrow{opacity:1;transform:translateX(0);color:var(--champ-2)}
+.hpl-row--focus .hpl-meta{color:var(--coral-d);opacity:.9}
+@media (hover:hover){.hpl-root.is-peeking .hpl-row:not(:hover) .hpl-link{color:color-mix(in srgb,var(--ink) 38%,transparent)}}
+.hpl-thumb{display:none}
+@media (max-width:760px){
+  .svc__head{grid-template-columns:1fr}.svc__head>p{justify-self:start}
+  .hpl-link{grid-template-columns:4.2rem 1fr;grid-template-areas:"thumb name" "thumb meta";row-gap:.4rem}
+  .hpl-num,.hpl-arrow,.hpl-peek{display:none}
+  .hpl-thumb{display:block;grid-area:thumb;width:4.2rem;height:5.2rem;object-fit:cover;border-radius:.6rem;align-self:start}
+  .hpl-name{grid-area:name}.hpl-meta{grid-area:meta;justify-self:start}
+}
+.svc__cta{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;margin-top:3rem}
+
+
+/* ---------- reviews ---------- */
+.revs{padding:clamp(6rem,11vw,10rem) 0;overflow:hidden}
+.revs .label{color:var(--champ)}
+.revs__head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.revs__head h2{margin-top:1.2rem}
+.revs__head h2 em{color:var(--champ)}
+.stars{display:inline-flex;gap:2px;color:var(--champ)}
+.stars svg{width:15px;height:15px;fill:currentColor}
+.score{display:flex;align-items:center;gap:1rem;text-decoration:none;color:var(--on-dark);border:1px solid var(--line-dark);border-radius:999px;padding:.7rem 1.4rem .7rem 1.1rem;transition:background .4s var(--ease),border-color .4s}
+.score:hover{background:rgba(245,240,232,.06);border-color:rgba(245,240,232,.3)}
+.score b{font-family:var(--serif);font-weight:400;font-size:3rem;line-height:1}
+.score>span{display:flex;flex-direction:column;gap:.3rem}
+.score .stars svg{width:18px;height:18px}
+.score small{color:var(--dim-dark);font-size:.82rem}
+.revs__grid{columns:3;column-gap:1.1rem}
+.rev{break-inside:avoid;margin:0 0 1.1rem;background:#1f1b17;border:1px solid var(--line-dark);border-radius:1.1rem;padding:1.5rem 1.5rem 1.3rem;transition:border-color .5s var(--ease),transform .6s var(--ease)}
+@media (hover:hover){.rev:hover{border-color:rgba(217,187,143,.45);transform:translateY(-4px)}}
+.rev__top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.1rem}
+.rev__top .label{font-size:.62rem;color:var(--dim-dark)}
+.rev blockquote{margin:0}
+.rev__h{font-family:var(--serif);font-size:1.35rem;line-height:1.2;margin-bottom:.8rem}
+.rev__t{color:var(--dim-dark);font-size:.93rem;line-height:1.6}
+.rev figcaption{display:flex;align-items:center;gap:.75rem;margin-top:1.3rem;padding-top:1.1rem;border-top:1px solid var(--line-dark)}
+.av{width:2.3rem;height:2.3rem;border-radius:50%;display:grid;place-items:center;background:var(--champ);color:var(--ink);font-weight:700;font-size:.9rem}
+.rev figcaption b{display:block;font-weight:600;font-size:.92rem}
+.rev figcaption small{color:var(--dim-dark);font-size:.75rem}
+.revs__dots{display:none}
+@media (max-width:700px){.revs__dots{display:flex;justify-content:center;gap:.5rem;margin-top:1rem}.revs__dots button{width:8px;height:8px;padding:0;border:0;border-radius:99px;background:rgba(245,240,232,.25);cursor:pointer;transition:width .4s var(--ease),background .4s var(--ease)}.revs__dots button.on{width:26px;background:var(--champ)}}
+.revs__foot{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;margin-top:2rem}
+.revs__foot .tlink{color:var(--on-dark)}
+.revs__foot .muted{font-size:.85rem}
+@media (max-width:1080px){.revs__grid{columns:2}}
+@media (max-width:700px){
+  .revs__grid{--pad:clamp(1.25rem,4vw,3.5rem);columns:auto;display:flex;gap:.85rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);overscroll-behavior-x:contain;margin-inline:calc(-1*var(--pad));padding:0 var(--pad) .5rem;scrollbar-width:none;align-items:stretch}
+  .revs__grid::-webkit-scrollbar{display:none}
+  .revs__grid::after{content:"";flex:0 0 1px}
+  .rev{flex:0 0 min(84vw,22rem);margin:0;scroll-snap-align:start;scroll-snap-stop:always;display:flex;flex-direction:column}
+  .rev figcaption{margin-top:auto}
+  .rev blockquote{margin-bottom:1.3rem}
+  .revs .rv{opacity:1;transform:none}
+  .score{width:100%;justify-content:flex-start}
+}
+
+
+/* ---------- design boosts ---------- */
+body::after{content:"";position:fixed;inset:-50%;z-index:100;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.chip-news{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--on-dark);font-size:.82rem;font-weight:500;padding:.5rem .95rem;border:1px solid rgba(245,240,232,.18);border-radius:99px;background:rgba(245,240,232,.06);backdrop-filter:blur(8px);margin-bottom:1.6rem;transition:background .4s var(--ease),border-color .4s}
+.chip-news:hover{background:rgba(245,240,232,.12);border-color:rgba(217,187,143,.6)}
+.chip-news .dot{width:7px;height:7px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 0 rgba(228,102,79,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(228,102,79,0)}100%{box-shadow:0 0 0 0 rgba(228,102,79,0)}}
+.spin{position:absolute;z-index:3;right:clamp(1.5rem,4vw,3.5rem);bottom:clamp(4.5rem,9vh,6rem);width:118px;height:118px;display:grid;place-items:center;color:var(--champ);text-decoration:none}
+.spin svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 18s linear infinite}
+.spin text{font-family:var(--mono);font-size:9.6px;letter-spacing:.22em;fill:var(--champ)}
+.spin b{width:54px;height:54px;border-radius:50%;background:var(--champ);color:var(--ink);display:grid;place-items:center;font-size:1.3rem;transition:transform .5s var(--ease)}
+.spin:hover b{transform:scale(1.1) rotate(72deg)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.spin svg,.chip-news .dot{animation:none}}
+@media (max-width:860px){.spin{display:none}.chip-news{font-size:.72rem;margin-bottom:1.1rem}}
+.brk{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden;color:var(--on-dark);isolation:isolate}
+.brk__media{position:absolute;inset:0;z-index:-1}
+.brk__media img{width:100%;height:120%;object-fit:cover;object-position:50% 35%;will-change:transform}
+.brk__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,18,15,.05) 30%,rgba(21,18,15,.82))}
+.brk__c{padding-bottom:clamp(3.5rem,8vw,6rem)}
+.brk .stars{color:var(--champ);letter-spacing:.2em;font-size:1rem}
+.brk__q{font-family:var(--serif);font-size:clamp(1.7rem,.95rem + 2.5vw,3.3rem);line-height:1.14;letter-spacing:-.015em;max-width:24ch;margin:1rem 0 1.4rem}
+.brk__q em{color:var(--champ)}
+.brk .label{color:var(--dim-dark)}
+.vou{padding:clamp(6rem,11vw,10rem) 0;background:var(--page)}
+.vou__g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,8vw,8rem);align-items:center}
+.vou .label{color:var(--muted)}
+.vou h2{margin:1.2rem 0 1.4rem}.vou h2 em{color:var(--champ-2)}
+.vou__card{position:relative;aspect-ratio:1.6;border-radius:1.4rem;padding:clamp(1.4rem,3vw,2.4rem);color:var(--on-dark);background:radial-gradient(120% 140% at 0% 0%,#3a3128 0%,#15120f 55%),#15120f;box-shadow:0 60px 100px -50px rgba(21,18,15,.7),inset 0 0 0 1px rgba(217,187,143,.28);overflow:hidden;display:flex;flex-direction:column;transform:perspective(1200px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .6s var(--ease)}
+.vou__card::before{content:"";position:absolute;inset:.7rem;border:1px solid rgba(217,187,143,.35);border-radius:1rem;pointer-events:none}
+.vou__shine{position:absolute;inset:0;background:radial-gradient(40% 60% at var(--mx,30%) var(--my,20%),rgba(217,187,143,.28),transparent 70%);pointer-events:none}
+.vou__logo{width:84px;opacity:.95}
+.vou__card .label{color:var(--champ);margin-top:auto}
+.vou__t{font-family:var(--serif);font-size:clamp(2.4rem,1.6rem + 3vw,4.2rem);line-height:1;letter-spacing:-.02em;margin:.4rem 0 1rem}
+.vou__t em{color:var(--champ)}
+.vou__row{display:flex;justify-content:space-between;align-items:end;gap:1rem;border-top:1px solid rgba(217,187,143,.3);padding-top:.9rem;font-size:.85rem;color:var(--dim-dark)}
+.vou__row b{font-family:var(--serif);font-weight:400;font-size:clamp(1.15rem,.9rem + 1vw,1.6rem);color:var(--on-dark);white-space:nowrap}
+.vou__list{list-style:none;margin:0 0 2.2rem;display:grid;gap:.6rem}
+.vou__list li{display:flex;gap:.7rem;align-items:center}
+.vou__list li::before{content:"";width:18px;height:18px;flex:none;border-radius:50%;background:var(--champ) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%2315120f' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+@media (max-width:860px){.vou__g{grid-template-columns:1fr}.brk{min-height:72vh}.vou__card{aspect-ratio:auto;min-height:17rem}.vou__logo{width:64px}.vou__card .label{margin-top:2.2rem}}
+.hpl-thumb{filter:saturate(.9)}
+
+/* ---------- beauty hills ---------- */
+.bh{background:#efe6da;padding:clamp(6rem,11vw,10rem) 0;overflow:hidden}
+.bh__top{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2.5rem,6vw,6rem);align-items:center}
+.bh__media{position:relative}
+.bh__media .main{border-radius:1.25rem;overflow:hidden;aspect-ratio:4/5}
+.bh__media .main img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);will-change:transform}
+.bh__media .float{position:absolute;right:-6%;bottom:8%;width:38%;aspect-ratio:1;border-radius:1rem;overflow:hidden;background:#fff;box-shadow:0 30px 60px -30px rgba(21,18,15,.45);border:6px solid #fff}
+.bh__media .float img{width:100%;height:100%;object-fit:cover}
+.bh__badge{position:absolute;left:-1rem;top:2rem;background:var(--coral);color:#fff;border-radius:999px;padding:.7rem 1.1rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 18px 40px -18px rgba(207,85,64,.8)}
+.bh .label{color:var(--coral-d)}
+.bh h2{margin:1.2rem 0 1.6rem}
+.bh h2 em{color:var(--coral-d)}
+.bh__stats{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem 2rem;margin:2.4rem 0 2.6rem;border-top:1px solid var(--line);padding-top:2rem}
+.bh__stats b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,1.6rem + 2vw,3.6rem);line-height:1;letter-spacing:-.02em}
+.bh__stats>div>span{display:block;color:var(--muted);font-size:.92rem;margin-top:.4rem}
+.odo{display:inline-flex;overflow:hidden;height:1em;line-height:1}.odo.done{display:inline;height:auto;overflow:visible}
+.odo__col{display:flex;flex-direction:column;transition:transform 1.8s var(--ease)}
+.odo__col span{height:1em;display:block}
+.bh__steps-h{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin:clamp(5rem,9vw,8rem) 0 2rem}
+.bh__steps-h .claim{font-family:var(--serif);font-size:clamp(2rem,1.3rem + 2.6vw,3.6rem);line-height:1.02;letter-spacing:-.015em}
+.bh__steps-h .claim em{color:var(--coral-d)}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1rem}
+.step{position:relative;background:#fbf8f3;border-radius:1rem;padding:1.3rem 1.3rem 1.5rem;display:flex;flex-direction:column;min-height:25rem;border:1px solid rgba(21,18,15,.06);transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.step:hover{transform:translateY(-6px);box-shadow:0 30px 60px -35px rgba(21,18,15,.4)}
+.step__n{display:flex;justify-content:space-between;align-items:center}
+.step__n b{width:2.2rem;height:2.2rem;border-radius:50%;border:1.5px solid var(--coral);color:var(--coral-d);display:grid;place-items:center;font-family:var(--mono);font-weight:500;font-size:.85rem}
+.step__n .label{font-size:.62rem;color:var(--muted)}
+.step__img{flex:1;display:grid;place-items:center;margin:.8rem 0;min-height:11rem}
+.step__img img{width:100%;max-width:11rem;aspect-ratio:1;object-fit:contain;mix-blend-mode:multiply;transition:transform .8s var(--ease)}
+.step:hover .step__img img{transform:scale(1.06) rotate(-2deg)}
+.step__ring{width:8.5rem;height:8.5rem;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#fff,#f1e3da 70%);font-family:var(--serif);font-size:3.6rem;color:var(--coral-d);box-shadow:inset 0 0 0 1px rgba(228,102,79,.25)}
+.step h4{font-family:var(--serif);font-weight:400;font-size:1.7rem;line-height:1.05}
+.step p{font-size:.9rem;color:var(--muted);margin-top:.45rem;line-height:1.5}
+.bh__note{display:flex;justify-content:space-between;gap:2rem;align-items:center;flex-wrap:wrap;margin-top:2.5rem;padding:1.6rem 1.8rem;background:var(--ink);color:var(--on-dark);border-radius:1.25rem}
+.bh__note p{max-width:44rem;color:var(--dim-dark)}
+.bh__note p strong{color:var(--on-dark);font-weight:600}
+@media (hover:none){.step:hover{transform:none;box-shadow:none}.step:hover .step__img img{transform:none}}
+.steps__dots{display:none}
+@media (max-width:1080px){
+  .steps{--pad:clamp(1.25rem,4vw,3.5rem);display:flex;gap:.85rem;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;margin-inline:calc(-1*var(--pad));padding:0 var(--pad) 1rem;scrollbar-width:none}
+  .steps::-webkit-scrollbar{display:none}
+  .step{flex:0 0 min(78vw,19rem);min-height:23rem;scroll-snap-align:start;scroll-snap-stop:always}
+  .steps::after{content:"";flex:0 0 1px}
+  .steps__dots{display:flex;justify-content:center;align-items:center;gap:.5rem;margin-top:.6rem}
+  .steps__dots button{width:8px;height:8px;padding:0;border:0;border-radius:99px;background:rgba(21,18,15,.2);cursor:pointer;transition:width .4s var(--ease),background .4s var(--ease)}
+  .steps__dots button.on{width:26px;background:var(--coral)}
+}
+.steps__hint{display:none;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:-1rem 0 1rem}
+@media (max-width:1080px){.steps__hint{display:block}}
+@media (max-width:860px){.bh__top{grid-template-columns:1fr}.bh__media{max-width:30rem;margin-right:2rem}.bh__media .float{right:-12%}.bh__badge{left:.8rem}}
+
+/* ---------- polaroids (after BYQ reforma-hero-7) ---------- */
+.gal{padding:clamp(6rem,11vw,10rem) 0 clamp(4rem,8vw,7rem);overflow:hidden}
+.gal__stage{position:relative;height:clamp(40rem,62vw,54rem);margin-top:1rem}
+.pol{position:absolute;background:#f0ebe3;padding:clamp(.6rem,1vw,.9rem) clamp(.6rem,1vw,.9rem) 0;border-radius:.9rem;box-shadow:0 30px 60px -35px rgba(21,18,15,.55),0 2px 0 rgba(255,255,255,.6) inset;transform:rotate(var(--r));transition:transform .7s var(--ease),box-shadow .7s var(--ease);will-change:transform;cursor:default}
+.pol:hover{transform:rotate(0) scale(1.04) translateY(-8px);z-index:10;box-shadow:0 50px 90px -40px rgba(21,18,15,.6)}
+.pol img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:.45rem}
+.pol figcaption{font-family:var(--script);font-weight:500;font-size:clamp(1.1rem,.9rem + .6vw,1.6rem);color:#6b625a;text-align:center;padding:.5rem 0 .7rem}
+.p1{--r:-9deg;width:clamp(10rem,18vw,16rem);left:1%;top:0}
+.p2{--r:4deg;width:clamp(10rem,17vw,15rem);left:21%;top:13%;z-index:2}
+.p3{--r:-3deg;width:clamp(10rem,19vw,17rem);left:40%;top:3%}
+.p4{--r:7deg;width:clamp(10rem,18vw,16rem);left:60%;top:40%;z-index:2}
+.p5{--r:-6deg;width:clamp(10rem,18vw,16rem);right:2%;top:5%}
+.gal__txt{position:absolute;left:0;bottom:0;max-width:30rem;z-index:3}
+.gal__txt h2{margin:1.2rem 0 1rem}
+@media (max-width:860px){
+  .gal__stage{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:1.4rem 1rem;padding-top:1rem}
+  .pol{position:relative;left:auto!important;right:auto!important;top:auto!important;width:auto}
+  .p5{display:none}
+  .gal__txt{position:relative;grid-column:1/-1;margin-top:1.5rem}
+}
+
+/* ---------- about ---------- */
+.about{padding:clamp(5rem,10vw,9rem) 0}
+.about__g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,7vw,7rem);align-items:center}
+.about__img{position:relative;padding-bottom:10%}
+.about__img .a{border-radius:1.25rem;overflow:hidden;aspect-ratio:3/4;width:78%}
+.about__img .a img,.about__img .b img{width:100%;height:100%;object-fit:cover}
+.about__img .b{position:absolute;right:0;bottom:0;width:48%;aspect-ratio:1;border-radius:1rem;overflow:hidden;border:8px solid var(--page);box-shadow:0 30px 60px -35px rgba(21,18,15,.5)}
+.about h2{margin:1.2rem 0 1.5rem}
+.about h2 em{color:var(--champ-2)}
+.about p+p{margin-top:1rem}
+.sig{font-family:var(--script);font-size:2.2rem;color:var(--ink-2);margin-top:1.8rem;line-height:1}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem}
+.chips span{border:1px solid var(--line);border-radius:99px;padding:.45rem .9rem;font-size:.82rem;font-weight:500;background:#fbf8f3}
+@media (max-width:860px){.about__g{grid-template-columns:1fr}}
+
+/* ---------- faq ---------- */
+.faq{padding:0 0 clamp(6rem,10vw,9rem)}
+.faq__g{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(2rem,6vw,6rem);border-top:1px solid var(--line);padding-top:clamp(3rem,6vw,5rem)}
+.faq h2{margin-top:1.2rem}
+.acc{border-bottom:1px solid var(--line)}
+.acc button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;background:none;border:0;padding:1.5rem 0;font:inherit;text-align:left;cursor:pointer;color:var(--ink);font-family:var(--serif);font-size:clamp(1.35rem,1.1rem + .8vw,1.8rem);line-height:1.15}
+.acc .pm{flex:none;width:2.2rem;height:2.2rem;border-radius:50%;border:1px solid var(--line);position:relative;transition:transform .5s var(--ease),background .4s}
+.acc .pm::before,.acc .pm::after{content:"";position:absolute;left:50%;top:50%;width:.8rem;height:1.5px;background:var(--ink);transform:translate(-50%,-50%)}
+.acc .pm::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .5s var(--ease)}
+.acc.open .pm{background:var(--champ);border-color:var(--champ)}
+.acc.open .pm::after{transform:translate(-50%,-50%) rotate(0)}
+.acc__p{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.acc.open .acc__p{grid-template-rows:1fr}
+.acc__p>div{min-height:0;overflow:hidden}
+.acc__p p{padding:0 3.5rem 1.6rem 0;color:var(--muted)}
+@media (max-width:860px){.faq__g{grid-template-columns:1fr}}
+
+/* ---------- contact ---------- */
+.ct{padding:clamp(6rem,11vw,10rem) 0 clamp(4rem,7vw,6rem);overflow:hidden}
+.ct__g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,7vw,7rem)}
+.ct .label{color:var(--champ)}
+.ct h2{margin:1.2rem 0 1.5rem}
+.ct h2 em{color:var(--champ)}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;border-top:1px solid var(--line-dark);padding-top:2rem}
+.info h5{font-family:var(--mono);font-weight:400;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--champ);margin-bottom:.7rem}
+.info p,.info a{color:var(--dim-dark);font-size:.95rem;text-decoration:none;line-height:1.7}
+.info a:hover{color:var(--on-dark)}
+.form{background:#1f1b17;border:1px solid var(--line-dark);border-radius:1.4rem;padding:clamp(1.5rem,3vw,2.5rem)}
+.form h3{font-family:var(--serif);font-weight:400;font-size:2rem;line-height:1.1;margin-bottom:.4rem}
+.form__f>p{color:var(--dim-dark);font-size:.92rem;margin-bottom:1.6rem}
+.fld{display:block;margin-bottom:1rem}
+.fld span{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim-dark);margin-bottom:.45rem}
+.fld input,.fld select,.fld textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line-dark);color:var(--on-dark);font:inherit;font-size:1rem;padding:.6rem 0;outline:none;transition:border-color .3s;border-radius:0}
+.fld select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--dim-dark) 50%),linear-gradient(135deg,var(--dim-dark) 50%,transparent 50%);background-position:calc(100% - 10px) 55%,calc(100% - 5px) 55%;background-size:5px 5px;background-repeat:no-repeat}
+.fld select option{background:#1f1b17}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--champ)}
+.fld textarea{resize:vertical;min-height:5.5rem}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form .btn{width:100%;justify-content:center;margin-top:1rem}
+.form__ok{display:none;text-align:center;padding:3rem 1rem}
+.form__ok b{display:block;font-family:var(--serif);font-weight:400;font-size:2.2rem;margin-bottom:.6rem}
+.form.sent .form__ok{display:block}.form.sent .form__f{display:none}
+.wa{display:inline-flex;align-items:center;gap:.6rem;margin-top:2.2rem;color:var(--on-dark);text-decoration:none;font-weight:600}
+.wa svg{width:1.4rem;height:1.4rem}
+.big{font-family:var(--serif);font-size:clamp(3rem,12.5vw,12rem);line-height:.85;letter-spacing:-.03em;white-space:nowrap;color:rgba(245,240,232,.07);margin-top:clamp(4rem,8vw,7rem);text-align:center;padding-bottom:.12em}
+@media (max-width:860px){.ct__g{grid-template-columns:1fr}.row2{grid-template-columns:1fr}}
+@media (max-width:480px){.info{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+.ftr{background:var(--ink);color:var(--dim-dark);border-top:1px solid var(--line-dark);padding:2.5rem 0 6.5rem;font-size:.88rem}
+.ftr__in{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+.ftr img{width:84px}
+.ftr nav{display:flex;gap:1.5rem;flex-wrap:wrap}
+.ftr a{text-decoration:none}.ftr a:hover{color:var(--on-dark)}
+.ftr .bhp{display:inline-flex;align-items:center;gap:.6rem}
+.ftr .bhp i{width:8px;height:8px;border-radius:50%;background:var(--coral)}
+@media (min-width:861px){.ftr{padding-bottom:2.5rem}}
+
+/* ---------- mobile sticky CTA ---------- */
+.mcta{position:fixed;left:.75rem;right:.75rem;bottom:.75rem;z-index:40;display:none;gap:.5rem;transform:translateY(140%);transition:transform .5s var(--ease)}
+.mcta.show{transform:none}
+.mcta .btn{flex:1;justify-content:center;padding:.95rem 1rem;box-shadow:0 18px 40px -16px rgba(0,0,0,.55)}
+.mcta .wa-b{flex:none;width:3.3rem;padding:0;background:#25d366;color:#fff}
+.mcta .wa-b svg{width:1.5rem;height:1.5rem}
+@media (max-width:860px){.mcta{display:flex}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1.1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+.no-js .rv{opacity:1;transform:none}
+
+/* =========================================================
+   BOLD THEME – Schwarz & Beige, breite fette Grotesk
+   ========================================================= */
+:root{
+  --ink:#0c0b0a; --ink-2:#1a1816; --page:#e9dfd1; --sand:#ddd0bd; --stone:#cbbba4;
+  --muted:#5b534a; --line:rgba(12,11,10,.14);
+  --champ:#e2d3bd; --champ-2:#0c0b0a;
+  --on-dark:#efe6d8; --dim-dark:rgba(239,230,216,.62); --line-dark:rgba(239,230,216,.16);
+  --serif:"Archivo", ui-sans-serif, system-ui, sans-serif;
+  --sans:"Archivo", ui-sans-serif, system-ui, sans-serif;
+  --mono:"Archivo", ui-sans-serif, system-ui, sans-serif;
+}
+body{font-family:var(--sans);font-stretch:100%;background:var(--page)}
+body::after{opacity:.035}
+.h1,.h2,.h3{font-family:var(--serif);font-weight:800;font-stretch:125%;text-transform:uppercase;letter-spacing:-.02em;line-height:.92;font-variation-settings:normal}
+.h2{font-size:clamp(2.1rem,.9rem + 4.6vw,5.6rem)}
+.h1 em,.h2 em,.h3 em,h2 em{font-style:normal;font-variation-settings:normal;color:var(--muted);font-weight:800}
+.dark .h2 em,.dark h2 em,.revs h2 em,.jy h2 em,.ct h2 em{color:var(--champ);opacity:.55}
+em{font-variation-settings:normal}
+[class*="serif"],.sms__title,.hpl-name,.step h4,.facts b,.bh__stats b,.claim,.vou__t,.form h3,.score b,.mq__t span,.mnav a,.big,.step__ring,.vou__row b{font-variation-settings:normal;font-weight:800;font-stretch:125%;text-transform:uppercase;letter-spacing:-.015em}
+.label,.hpl-num,.hpl-meta,.sms__num,.sms__tags i,.fld span,.info h5,.rev__top .label,.step__n .label,.cir-caption{font-family:var(--sans);font-stretch:125%;font-weight:600;letter-spacing:.2em}
+.label{font-size:.7rem}
+.btn{font-stretch:110%;font-weight:700;border-radius:999px}
+.btn--champ{--bg:var(--champ);--fg:var(--ink)}
+.btn--champ:hover{--bg:#f2e8d8}
+.btn--ghost{box-shadow:inset 0 0 0 1.5px currentColor}
+.tlink{font-weight:700}
+
+/* header */
+.hdr__bar{background:rgba(233,223,209,.9)}
+.nav a{font-weight:500;font-size:.95rem}
+.hdr .btn{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
+.hdr .btn .arr{background:transparent}
+.hdr.is-solid .btn{background:var(--ink);color:var(--page);box-shadow:none}
+
+/* hero – full bleed + giant wordmark */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding:0;background:var(--ink);overflow:hidden;place-items:initial}
+.hero::before{display:none}
+.hero__bg{position:absolute;inset:0;z-index:0}
+.hero__bg img{width:100%;height:115%;object-fit:cover;object-position:50% 40%;will-change:transform}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(12,11,10,.55) 0%,rgba(12,11,10,.05) 32%,rgba(12,11,10,.1) 55%,rgba(12,11,10,.72) 100%)}
+.hero__top{position:relative;z-index:2;padding-top:clamp(7rem,15vh,10rem)}
+.hero__intro{max-width:36rem;margin-left:clamp(0rem,18vw,22rem)}
+.hero .hero__lead{font-size:clamp(1.2rem,.9rem + 1vw,1.75rem);line-height:1.35;font-weight:500;color:#fff;letter-spacing:-.005em;text-shadow:0 2px 24px rgba(0,0,0,.45)}
+.hero__cta{justify-content:flex-start;margin-top:2rem}
+.hero__cta .tlink{color:var(--on-dark)}
+.hero__bottom{position:relative;z-index:2;padding-bottom:clamp(1rem,2.5vw,2rem)}
+.hero__meta{display:flex;justify-content:space-between;gap:1rem;color:var(--on-dark);margin-bottom:.6rem}
+.hero__meta .label{color:var(--on-dark);font-size:clamp(.65rem,.55rem + .35vw,.95rem)}
+.wordmark{margin:0;color:var(--on-dark);font-family:var(--serif);font-weight:900;font-stretch:125%;text-transform:uppercase;line-height:.8;letter-spacing:-.035em}
+.wm{display:block;white-space:nowrap;font-size:14vw;padding-bottom:.04em}
+.wm--2{text-align:right;color:var(--champ)}
+.wm-ch{display:inline-block;will-change:transform}
+.spin,.hero__trust{display:none}
+.chip-news{margin-bottom:1.8rem;background:rgba(12,11,10,.35)}
+@media (max-width:760px){
+  .hero__intro{margin-left:0}
+  .hero__top{padding-top:6.2rem}
+  .hero__lead{font-size:1.15rem}
+  .hero__meta-r{display:none}
+  .brk__q{font-size:1.25rem}
+}
+
+/* marquee – giant bold */
+.mq{background:var(--page);color:var(--ink);padding:1.4rem 0;border:0;border-bottom:1px solid var(--line)}
+.mq__t span{font-size:clamp(1.8rem,1rem + 3vw,4rem);gap:2.5rem;padding-inline:1.25rem}
+.mq__t span:nth-child(even){color:transparent;-webkit-text-stroke:1.5px var(--ink)}
+.mq__t span::after{content:"●";font-size:.35em;opacity:1;-webkit-text-stroke:0;color:var(--ink)}
+
+/* intro */
+.sbr{font-family:var(--sans);font-weight:600;font-stretch:112%;max-width:26ch;font-size:clamp(1.6rem,.8rem + 2.6vw,3.2rem);line-height:1.12;letter-spacing:-.02em}
+.sbr em{font-style:normal;color:var(--muted)}
+.facts b{font-size:clamp(1.2rem,.9rem + 1vw,1.7rem)}
+
+/* image break – grows to full width on scroll */
+.brk{min-height:auto;display:block;padding:clamp(1rem,3vw,2.5rem) 0;background:var(--page);color:var(--on-dark)}
+.brk__media{position:relative;inset:auto;height:clamp(32rem,92vh,62rem);overflow:hidden;clip-path:inset(0 var(--brk-x,6%) round var(--brk-r,28px));will-change:clip-path}
+.brk__media img{height:120%}
+.brk__media::after{background:linear-gradient(180deg,rgba(12,11,10,0) 35%,rgba(12,11,10,.8))}
+.brk__c{position:absolute;left:0;right:0;bottom:clamp(2rem,6vw,5rem);margin-inline:auto;padding:0;z-index:2}
+.brk__q{font-family:var(--sans);font-weight:700;font-stretch:118%;font-size:clamp(1.5rem,.8rem + 2.4vw,3.2rem);line-height:1.08;letter-spacing:-.025em;max-width:22ch;text-transform:uppercase}
+.brk__q em{font-style:normal;color:var(--champ)}
+.brk .stars{color:var(--champ)}
+
+/* journey */
+.jy{background:var(--ink)}
+.jy__head .label,.ct .label,.revs .label{color:var(--champ)}
+.sms__title{font-size:clamp(1.6rem,.9rem + 2.6vw,3.3rem);line-height:.95}
+.sms__entry.is-active .sms__num{color:var(--champ)}
+.sms__frame{border-radius:0;border:0}
+
+/* services */
+.svc{background:var(--page)}
+.hpl-name{font-size:clamp(1.25rem,.7rem + 2.2vw,2.6rem);line-height:1}
+.hpl-name small{text-transform:none;font-stretch:100%;font-weight:400;letter-spacing:0;margin-top:.5rem}
+.hpl-name::after{top:auto;bottom:-.15em;height:2px}
+.hpl-row--focus .hpl-meta{color:var(--ink);opacity:.9}
+.hpl-link:hover .hpl-arrow{color:var(--ink)}
+.hpl-peek{border-radius:.4rem;width:19rem}
+
+/* reviews */
+.revs{background:var(--ink)}
+.rev{background:var(--ink-2);border-radius:.5rem}
+.rev__h{font-family:var(--sans);font-weight:700;font-stretch:112%;font-size:1.3rem;line-height:1.15;letter-spacing:-.01em}
+.av{background:var(--champ)}
+.stars{color:var(--champ)}
+.score{border-radius:.5rem}
+
+/* voucher */
+.vou{background:var(--sand)}
+.vou__card{border-radius:.6rem;background:var(--ink)}
+.vou__card::before{border-radius:.3rem;border-color:rgba(226,211,189,.3)}
+.vou__t{font-size:clamp(1.5rem,.9rem + 2.2vw,2.9rem);line-height:.92}
+.vou__t em{font-style:normal;color:var(--champ)}
+.vou__list li::before{background-color:var(--ink);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23e2d3bd' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+
+/* beauty hills keeps its coral, on beige */
+.bh{background:var(--page)}
+.bh__media .main{border-radius:.5rem}
+.bh__steps-h .claim{font-size:clamp(1.6rem,1rem + 2.4vw,3.2rem);line-height:.95}
+.bh__steps-h .claim em{font-style:normal}
+.step{border-radius:.5rem;background:#f4ede3}
+.step h4{font-size:clamp(.9rem,.65rem + .45vw,1.15rem);hyphens:manual}
+.step__ring{font-size:3rem}
+.bh__stats b{font-size:clamp(1.8rem,1.2rem + 1.8vw,3rem)}
+.bh__note{border-radius:.5rem}
+
+/* gallery (BYQ curtain-image-reveal-01) */
+.gal2{background:var(--ink);color:var(--on-dark);padding:clamp(6rem,11vw,10rem) 0}
+.gal2 .label{color:var(--champ)}
+.gal2__head{max-width:56rem;margin-bottom:clamp(3rem,6vw,5rem)}
+.gal2__head h2{margin:1.2rem 0 1.2rem}
+.gal2 .muted{color:var(--dim-dark)}
+.gal2 .tlink{color:var(--on-dark)}
+.cir{display:flex;align-items:flex-start;gap:clamp(1.25rem,4vw,3.5rem);max-width:64rem;margin-inline:auto}
+.cir__col{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:clamp(3.5rem,10vh,6.5rem)}
+.cir__col--b{margin-top:clamp(5rem,24vh,11rem)}
+.cir-item{margin:0}
+.cir-frame{position:relative;overflow:hidden;border-radius:.5rem;background:var(--ink-2);transform:translateZ(0);transition:clip-path .9s cubic-bezier(.16,1,.3,1) var(--d,0s)}
+.cir-img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.25);transition:transform 1.05s cubic-bezier(.16,1,.3,1) var(--d,0s)}
+.cir-caption{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-top:.7rem;font-size:.72rem;line-height:1;text-transform:uppercase;opacity:0;transform:translateY(8px);transition:opacity .45s ease calc(var(--d,0s) + .7s),transform .55s cubic-bezier(.16,1,.3,1) calc(var(--d,0s) + .7s)}
+.cir-caption span:first-child{color:var(--champ)}
+.cir-caption span:last-child{color:var(--dim-dark)}
+.cir-item[data-revealed="true"] .cir-frame{clip-path:inset(0 0 0 0)!important}
+.cir-item[data-revealed="true"] .cir-img{transform:scale(1)}
+.cir-item[data-revealed="true"] .cir-caption{opacity:1;transform:translateY(0)}
+@media (max-width:44rem){.cir{flex-direction:column;gap:3.25rem}.cir__col{width:100%;gap:3.25rem}.cir__col--b{margin-top:0}}
+@media (prefers-reduced-motion:reduce){.cir-frame{clip-path:inset(0 0 0 0)!important;transition:none!important}.cir-img{transform:scale(1)!important;transition:none!important}.cir-caption{opacity:1!important;transform:none!important;transition:none!important}}
+
+/* about */
+.about{background:var(--page)}
+.about__img .a,.about__img .b{border-radius:.5rem}
+.about__img .b{border-color:var(--page)}
+.about h2 em{color:var(--muted)}
+.sig{font-family:var(--sans);font-weight:800;font-stretch:125%;text-transform:uppercase;font-size:1.1rem;letter-spacing:.05em}
+.chips span{background:transparent;border-color:var(--ink);font-weight:600}
+
+/* faq */
+.faq{background:var(--page)}
+.acc button{font-family:var(--sans);font-weight:700;font-stretch:112%;font-size:clamp(1.05rem,.9rem + .6vw,1.45rem);letter-spacing:-.01em}
+.acc.open .pm{background:var(--ink);border-color:var(--ink)}
+.acc.open .pm::before,.acc.open .pm::after{background:var(--page)}
+
+/* contact & footer */
+.ct{background:var(--ink)}
+.form{background:var(--ink-2);border-radius:.6rem}
+.form h3{font-size:1.5rem}
+.big{color:rgba(239,230,216,.08);font-weight:900;letter-spacing:-.04em;text-align:left;line-height:.8;white-space:nowrap}.big>span{display:block}
+.ftr{background:var(--ink)}
+
+@media (max-width:600px){
+  .h2{font-size:clamp(1.6rem,1rem + 4.2vw,2.1rem)}
+  .bh__stats b{font-size:1.45rem}
+  .vou__row b{font-size:.95rem}
+  .vou__t{font-size:1.6rem}
+  .sms__title{font-size:1.45rem}
+}
+
+/* header – responsive refinements */
+.hdr__in{width:calc(100% - 2*clamp(1.25rem,3vw,3rem));max-width:120rem;gap:clamp(1rem,2vw,2rem)}
+.nav{gap:clamp(1rem,1.7vw,2.1rem);margin-inline:auto}
+.nav a{white-space:nowrap;font-size:clamp(.85rem,.75rem + .2vw,.98rem)}
+.hdr .btn{white-space:nowrap;flex:none}
+.burger{display:none;align-items:center;gap:.6rem;font-family:var(--sans);font-stretch:112%;font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}
+.burger i{position:relative;display:block;width:22px;height:10px}
+.burger i::before,.burger i::after{content:"";position:absolute;left:0;right:0;height:2px;background:currentColor;transition:transform .4s var(--ease),top .4s var(--ease)}
+.burger i::before{top:0}.burger i::after{top:8px}
+.burger[aria-expanded="true"] i::before{top:4px;transform:rotate(45deg)}
+.burger[aria-expanded="true"] i::after{top:4px;transform:rotate(-45deg)}
+.hdr.menu .hdr__in{color:var(--on-dark)}
+.hdr.menu .hdr__bar{transform:scaleY(0)}
+.hdr.menu .logo .lw{opacity:1}.hdr.menu .logo .lb{opacity:0}
+@media (max-width:1180px){
+  .nav{display:none}
+  .burger{display:inline-flex;margin-left:0}
+  .hdr .btn{display:inline-flex;margin-left:auto}
+}
+@media (max-width:600px){.hdr .btn{display:none}.burger{margin-left:auto}}
+.mnav{justify-content:flex-start;padding:7rem clamp(1.25rem,4vw,3rem) 2rem;gap:.35rem;overflow-y:auto}
+.mnav a{font-size:clamp(1.6rem,6.8vw,3.4rem);line-height:1.12;padding:.2rem 0;border-bottom:1px solid var(--line-dark)}
+.mnav .btn{font-size:1rem;text-transform:none;font-stretch:110%;letter-spacing:0;border-bottom:0;padding:1rem 1.5rem;margin-top:2rem}
+
+/* rotating google quotes on image */
+.brk__top{display:flex;align-items:center;gap:1.2rem;margin-bottom:1rem}
+.brk__all{color:var(--on-dark);text-decoration:none;opacity:.8}
+.brk__all:hover{opacity:1}
+.brk__slides{display:grid}
+.brk__s{grid-area:1/1;margin:0;opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .9s var(--ease);pointer-events:none}
+.brk__s.is-on{opacity:1;transform:none;pointer-events:auto}
+.brk__s .brk__q{margin:0 0 1.2rem;font-size:clamp(1.7rem,.9rem + 3vw,4rem);max-width:20ch}
+.brk__s .label{color:var(--dim-dark)}
+.brk__dots{display:flex;gap:.5rem;margin-top:1.6rem}
+.brk__dots button{position:relative;width:46px;height:3px;padding:0;border:0;background:rgba(239,230,216,.25);cursor:pointer;overflow:hidden}
+.brk__dots button i{position:absolute;inset:0;background:var(--champ);transform:scaleX(0);transform-origin:left}
+.brk__dots button.on i{animation:brkfill 5.5s linear forwards}
+.brk__dots button.done i{transform:scaleX(1)}
+@keyframes brkfill{to{transform:scaleX(1)}}
+@media (max-width:600px){.brk__s .brk__q{font-size:1.5rem}.brk__c{bottom:5.5rem}}
+.brk__s .brk__q{font-size:clamp(1.7rem,.8rem + 3.4vw,4.6rem)}
+@media (prefers-reduced-motion:reduce){.brk__dots button.on i{animation:none;transform:scaleX(1)}}
+
+</style>
+</head>
+<body class="no-js">
+
+<!-- Header -->
+<header class="hdr" id="hdr">
+  <div class="hdr__bar"></div>
+  <div class="hdr__in">
+    <a href="#top" class="logo" aria-label="verSchmitzt schön – Startseite">
+      <img class="lw" src="img/logo-white.png" alt="verSchmitzt schön">
+      <img class="lb" src="img/logo.png" alt="" aria-hidden="true">
+    </a>
+    <ul class="nav">
+      <li><a href="#kosmetik">Kosmetik</a></li>
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#bewertungen">Bewertungen</a></li>
+      <li><a href="#gutscheine">Gutscheine</a></li>
+      <li><a href="#beauty-hills">Beauty Hills</a></li>
+      <li><a href="#studio">Studio</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a href="https://www.planity.com/de-DE/verschmitzt-schon-59329-wadersloh" target="_blank" rel="noopener" class="btn">Online buchen <span class="arr">→</span></a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="mnav"><span class="burger__t">Menü</span><i aria-hidden="true"></i></button>
+  </div>
+</header>
+<nav class="mnav" id="mnav" aria-label="Mobiles Menü">
+  <a href="#kosmetik">Kosmetik</a>
+  <a href="#leistungen">Leistungen</a>
+  <a href="#bewertungen">Bewertungen</a>
+  <a href="#gutscheine">Gutscheine</a>
+  <a href="#beauty-hills">Beauty Hills</a>
+  <a href="#studio">Studio</a>
+  <a href="#kontakt">Kontakt</a>
+  <a href="https://www.planity.com/de-DE/verschmitzt-schon-59329-wadersloh" target="_blank" rel="noopener" class="btn btn--champ">Online buchen <span class="arr">→</span></a>
+</nav>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero" aria-label="Willkommen">
+  <picture class="hero__bg">
+    <source media="(max-width:760px)" srcset="img/u-eye-m.webp">
+    <img src="img/u-eye.webp" alt="Nahaufnahme eines Auges mit gepflegter, strahlender Haut" id="heroImg">
+  </picture>
+  <div class="hero__top wrap">
+    <div class="hero__intro">
+      <a class="chip-news" href="https://www.planity.com/de-DE/verschmitzt-schon-59329-wadersloh" target="_blank" rel="noopener"><span class="dot"></span>Neu: Hautpflege-Workshop am 17.11. <span aria-hidden="true">→</span></a>
+      <p class="hero__lead">Schöne Haut ist kein Zufall. Ehrliche Kosmetik mit Zeit, Ruhe und einem Plan, der wirklich zu deiner Haut passt.</p>
+      <div class="hero__cta">
+        <a href="https://www.planity.com/de-DE/verschmitzt-schon-59329-wadersloh" target="_blank" rel="noopener" class="btn btn--champ">Neukunden-Termin buchen <span class="arr">→</span></a>
+        <a href="#bewertungen" class="tlink">★ 5,0 bei Google</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero__bottom wrap">
+    <div class="hero__meta"><p class="label">Kosmetikinstitut in Wadersloh</p><p class="label hero__meta-r">Kirchplatz 9 · 59329 Wadersloh</p></div>
+    <h1 class="wordmark" aria-label="verSchmitzt schön – Kosmetikinstitut in Wadersloh"><span class="wm" data-fit>VERSCHMITZT</span><span class="wm wm--2">SCHÖN</span></h1>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq" aria-hidden="true">
+  <div class="mq__t">
+    <span>Aqua Facial</span><span>Microneedling</span><span>Green Peel</span><span>Fruchtsäure</span><span>Hautanalyse</span><span>Wimpern &amp; Brauen</span><span>Hände &amp; Füße</span><span>Glow Special</span>
+    <span>Aqua Facial</span><span>Microneedling</span><span>Green Peel</span><span>Fruchtsäure</span><span>Hautanalyse</span><span>Wimpern &amp; Brauen</span><span>Hände &amp; Füße</span><span>Glow Special</span>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="intro" aria-label="Unsere Haltung">
+  <div class="wrap">
+    <div class="intro__g">
+      <p class="label muted">Unsere Haltung</p>
+      <div>
+        <p class="sbr" id="sbr">Bei verSchmitzt schön beginnt jede Behandlung mit einem genauen Blick auf deine Haut – nicht auf den nächsten Trend. Wir analysieren, beraten und pflegen so, dass deine Haut <em>sichtbar ausgeglichen</em> wirkt und du dich nach jedem Termin <em>rundum wohlfühlst.</em></p>
+        <div class="facts">
+          <div class="rv"><b>Individuell</b><p>Jede Pflege wird auf deinen Hauttyp und deine Ziele abgestimmt – nichts von der Stange.</p></div>
+          <div class="rv"><b>„gut gepflegt“</b><p>Unsere Neukunden-Behandlung (75 Min., 79 €): der ideale Einstieg, um deine Haut kennenzulernen.</p></div>
+          <div class="rv"><b>Mit System</b><p>Professionelle Pflege von Beauty Hills – im Studio und abgestimmt für zuhause.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGE BREAK -->
+<section class="brk" aria-label="Stimme einer Kundin">
+  <div class="brk__media"><img src="img/u-skin.webp" alt="Nahaufnahme gepflegter Haut" id="brkImg" loading="lazy"></div>
+  <div class="brk__c wrap">
+    <div class="brk__top"><span class="stars" aria-label="5 von 5 Sternen">★★★★★</span><a class="label brk__all" href="#bewertungen">5,0 · alle Bewertungen →</a></div>
+    <div class="brk__slides" id="brkSlides" aria-live="polite"><figure class="brk__s is-on"><blockquote class="brk__q">„Die Behandlungen zeigen Erfolge.“</blockquote><figcaption class="label">Lara P. · Google-Rezension</figcaption></figure><figure class="brk__s"><blockquote class="brk__q">„Hier stimmt einfach alles.“</blockquote><figcaption class="label">Anna H. · Google-Rezension</figcaption></figure><figure class="brk__s"><blockquote class="brk__q">„Die erste Kosmetikerin, die mir nichts aufgeschwatzt hat.“</blockquote><figcaption class="label">I. K. · Google-Rezension</figcaption></figure><figure class="brk__s"><blockquote class="brk__q">„Absoluter Wohlfühlort!“</blockquote><figcaption class="label">Inga G. · Google-Rezension</figcaption></figure><figure class="brk__s"><blockquote class="brk__q">„Auch an alle Männer, einfach mal ausprobieren.“</blockquote><figcaption class="label">Ralf K. · Google-Rezension</figcaption></figure></div>
+    <div class="brk__dots" id="brkDots"><button type="button" aria-label="Bewertung 1" class="on"><i></i></button><button type="button" aria-label="Bewertung 2"><i></i></button><button type="button" aria-label="Bewertung 3"><i></i></button><button type="button" aria-label="Bewertung 4"><i></i></button><button type="button" aria-label="Bewertung 5"><i></i></button></div>
+  </div>
+</section>
+
+<!-- JOURNEY (Kosmetik) -->
+<section class="jy dark" id="kosmetik" aria-label="Dein Weg zu schöner Haut">
+  <div class="wrap">
+    <div class="jy__head">
+      <div>
+        <p class="label">Kosmetik im Fokus</p>
+        <h2 class="h2">Dein Weg zu <em>schöner Haut.</em></h2>
+      </div>
+      <p class="muted">Vier Schritte, ein Ziel: eine Haut, die sich gut anfühlt – heute und langfristig.</p>
+    </div>
+    <div class="sms" id="sms">
+      <div>
+        <div class="sms__step">
+          <button class="sms__entry is-active" type="button">
+            <span class="sms__num">01</span>
+            <span>
+              <span class="sms__title">Kennenlernen &amp; Hautanalyse</span>
+              <span class="sms__line">Wir nehmen uns Zeit: Hauttyp, Bedürfnisse, Wünsche. Erst wenn wir deine Haut verstehen, beginnt die Behandlung.</span>
+              <span class="sms__tags"><i>Beratung</i><i>Hautbild</i><i>Ziele</i></span>
+            </span>
+          </button>
+          <img class="sms__mimg" src="img/u-massage.webp" alt="Ruhige Gesichtsbehandlung" loading="lazy">
+        </div>
+        <div class="sms__step">
+          <button class="sms__entry" type="button">
+            <span class="sms__num">02</span>
+            <span>
+              <span class="sms__title">Neukunden-Behandlung „gut gepflegt“</span>
+              <span class="sms__line">Analyse, Reinigung, Peeling, Ausreinigung, Maske und Pflege – und dazu deine Routine auf dem Prüfstand. Deine erste Me-Time bei uns.</span>
+              <span class="sms__tags"><i>75 Min.</i><i>79 €</i><i>Online buchbar</i></span>
+            </span>
+          </button>
+          <img class="sms__mimg" src="img/u-mask.webp" alt="Maske bei der Neukunden-Behandlung" loading="lazy">
+        </div>
+        <div class="sms__step">
+          <button class="sms__entry" type="button">
+            <span class="sms__num">03</span>
+            <span>
+              <span class="sms__title">Dein persönlicher Pflegeplan</span>
+              <span class="sms__line">Gemeinsam entsteht ein Plan für die nächsten Wochen: welche Behandlungen, in welchem Rhythmus – und warum.</span>
+              <span class="sms__tags"><i>Rhythmus</i><i>Behandlungen</i><i>Ergebnisse</i></span>
+            </span>
+          </button>
+          <img class="sms__mimg" src="img/u-device.webp" alt="Apparative Behandlung" loading="lazy">
+        </div>
+        <div class="sms__step">
+          <button class="sms__entry" type="button">
+            <span class="sms__num">04</span>
+            <span>
+              <span class="sms__title">Pflege für zuhause</span>
+              <span class="sms__line">Damit das Ergebnis bleibt: deine Heimpflege mit dem 5-Stufen-System von Beauty Hills, genau auf deine Haut abgestimmt.</span>
+              <span class="sms__tags"><i>5-Stufen-System</i><i>Made in Germany</i></span>
+            </span>
+          </button>
+          <img class="sms__mimg" src="img/bh-snowtox.webp" alt="Frau trägt Pflegecreme auf" loading="lazy">
+        </div>
+      </div>
+      <div class="sms__stage" aria-hidden="true">
+        <div class="sms__frame">
+          <img src="img/u-massage.webp" alt="">
+          <img src="img/u-mask.webp" alt="">
+          <img src="img/u-device.webp" alt="">
+          <img src="img/bh-snowtox.webp" alt="">
+          <span class="sms__cap label" id="smsCap">01 / 04</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="svc" id="leistungen" aria-label="Leistungen">
+  <div class="wrap">
+    <div class="svc__head">
+      <div>
+        <p class="label muted">Leistungen</p>
+        <h2 class="h2">Behandlungen für <em>deine Haut.</em></h2>
+      </div>
+      <p class="muted">Von der Neukunden-Behandlung bis zum Microneedling – professionelle Kosmetik mit Zeit, Ruhe und ehrlicher Beratung, in Wadersloh.</p>
+    </div>
+    <div class="hpl-root" id="hpl">
+      <div class="hpl-peek" aria-hidden="true">
+        <img class="hpl-peek-img" src="img/u-foam.webp" alt="">
+        <img class="hpl-peek-img" src="img/u-peel.webp" alt="">
+        <img class="hpl-peek-img" src="img/u-device.webp" alt="">
+        <img class="hpl-peek-img" src="img/u-brush.webp" alt="">
+        <img class="hpl-peek-img" src="img/lash-lift.webp" alt="">
+        <img class="hpl-peek-img" src="img/nails.webp" alt="">
+      </div>
+      <ul class="hpl-list">
+        <li class="hpl-row hpl-row--focus"><a class="hpl-link" href="https://www.planity.com/de-DE/verschmitzt-schon-59329-wadersloh" target="_blank" rel="noopener"><img class="hpl-thumb" src="img/u-foam.webp" alt="" loading="lazy"><span class="hpl-num">01</span><span class="hpl-name">Neukunden-Behandlung<small>„gut gepflegt Starter“ – Hautanalyse, Reinigung, Ausreinigung, Maske &amp; Pflege · 75 Min. · 79 €</small></span><span class="hpl-meta">Start hier</span><span class="hpl-arrow" aria-hidden="true">→</span></a></li>
+        <li class="hpl-row hpl-row--focus"><a class="hpl-link" href="https://www.planity.com/de-DE/verschmitzt-schon-59329-wadersloh" target="_blank" rel="noopener"><img class="hpl-thumb" src="img/u-peel.webp" alt="" loading="lazy"><span class="hpl-num">02</span><span class="hpl-name">Aqua Facial<small>Porentiefe Reinigung, Peeling und Feuchtigkeit in einem – für sofort sichtbar frischere Haut</small></span><span class="hpl-meta">Kosmetik · Bestseller</span><span class="hpl-arrow" aria-hidden="true">→</span></a></li>
+        <li class="hpl-row hpl-row--focus"><a class="hpl-link" href="https://www.planity.com/de-DE/verschmitzt-schon-59329-wadersloh" target="_blank" rel="noopener"><img class="hpl-thumb" src="img/u-device.webp" alt="" loading="lazy"><span class="hpl-num">03</span><span class="hpl-name">Microneedling<small>Anti-Aging durch gezielte Stimulation – auch als neues Exosome-Treatment</small></span><span class="hpl-meta">Kosmetik · Anti-Aging</span><span class="hpl-arrow" aria-hidden="true">→</span></a></li>
+        <li class="hpl-row hpl-row--focus"><a class="hpl-link" href="https://www.planity.com/de-DE/verschmitzt-schon-59329-wadersloh" target="_blank" rel="noopener"><img class="hpl-thumb" src="img/u-brush.webp" alt="" loading="lazy"><span class="hpl-num">04</span><span class="hpl-name">Green Peel &amp; Fruchtsäure<small>Kräuterschälkur und Fruchtsäure-Treatments für ein klares, ebenmäßiges Hautbild</small></span><span class="hpl-meta">Kosmetik</span><span class="hpl-arrow" aria-hidden="true">→</span></a></li>
+        <li class="hpl-row"><a class="hpl-link" href="https://www.planity.com/de-DE/verschmitzt-schon-59329-wadersloh" target="_blank" rel="noopener"><img class="hpl-thumb" src="img/lash-lift.webp" alt="" loading="lazy"><span class="hpl-num">05</span><span class="hpl-name">Wimpern &amp; Augenbrauen<small>Lifting, Färben und Gestaltung – für einen ausdrucksstarken Blick</small></span><span class="hpl-meta">Lashes &amp; Brows</span><span class="hpl-arrow" aria-hidden="true">→</span></a></li>
+        <li class="hpl-row"><a class="hpl-link" href="https://www.planity.com/de-DE/verschmitzt-schon-59329-wadersloh" target="_blank" rel="noopener"><img class="hpl-thumb" src="img/nails.webp" alt="" loading="lazy"><span class="hpl-num">06</span><span class="hpl-name">Hände &amp; Füße<small>Maniküre und Fußpflege – schöne Hände und Füße, jederzeit</small></span><span class="hpl-meta">Nails</span><span class="hpl-arrow" aria-hidden="true">→</span></a></li>
+      </ul>
+    </div>
+    <div class="svc__cta rv">
+      <a href="https://www.planity.com/de-DE/verschmitzt-schon-59329-wadersloh" target="_blank" rel="noopener" class="btn">Alle Behandlungen &amp; Preise <span class="arr">→</span></a>
+      <span class="muted">Freie Termine sehen und direkt online buchen</span>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="revs dark" id="bewertungen" aria-label="Google-Bewertungen">
+  <div class="wrap">
+    <div class="revs__head">
+      <div>
+        <p class="label">Das sagen unsere Kundinnen &amp; Kunden</p>
+        <h2 class="h2">Echte Stimmen, <em>echte Haut.</em></h2>
+      </div>
+      <a class="score" href="https://www.google.com/maps/search/?api=1&amp;query=verSchmitzt+SCH%C3%96N+Wadersloh&amp;query_place_id=ChIJq5779isrukcR6h2GfC2-PHM" target="_blank" rel="noopener">
+        <b>5,0</b>
+        <span><span class="stars" aria-label="5 von 5 Sternen"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></span><small>26 Bewertungen auf Google</small></span>
+      </a>
+    </div>
+    <div class="revs__grid" id="revs">
+      <figure class="rev rv">
+        <div class="rev__top"><span class="stars" aria-label="5 von 5 Sternen"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></span><span class="label">Google</span></div>
+        <blockquote><p class="rev__h">„Die Behandlungen zeigen Erfolge.“</p><p class="rev__t">Ich bin wegen meiner Akne zu Steffis Team gekommen. Steffi hat mich super beraten und mir geholfen, meine Haut besser zu verstehen. Bisher war ich zur Reinigung da. Wohlfühlatmosphäre, Professionalität aber auch Humor - Diese Mischung ist für mich perfekt. Und das Beste - Die Behandlungen zeigen Erfolge.</p></blockquote>
+        <figcaption><span class="av">L</span><span><b>Lara P.</b><small>Google-Rezension · 5 Sterne</small></span></figcaption>
+      </figure>
+      <figure class="rev rv">
+        <div class="rev__top"><span class="stars" aria-label="5 von 5 Sternen"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></span><span class="label">Google</span></div>
+        <blockquote><p class="rev__h">„Die erste Kosmetikerin, die mir nichts aufgeschwatzt hat.“</p><p class="rev__t">Ich war am Samstag zur Kosmetikbehandlung da. Ich habe mit Mitte 40 seit 2 Jahren extreme Probleme mit der Haut. Die Räume waren sehr sauber und wirklich schön hergerichtet. Steffi hat sich sehr viel Zeit genommen, kein Hetzten, kein Stress. Sie hat mir erklärt, wie es zu dieser Art von Hautproblemen kommt. Die Behandlung war sehr entspannend. Was mir besonders gut gefallen hat: die erste Kosmetikerin, die mir nichts aufgeschwatzt hat. Wir werden langsam die Reinigung schrittweise umstellen. Danke für die Beratung und die Tips und Tricks. Ich kann das Geschäft nur empfehlen.</p></blockquote>
+        <figcaption><span class="av">I</span><span><b>I. K.</b><small>Google-Rezension · 5 Sterne</small></span></figcaption>
+      </figure>
+      <figure class="rev rv">
+        <div class="rev__top"><span class="stars" aria-label="5 von 5 Sternen"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></span><span class="label">Google</span></div>
+        <blockquote><p class="rev__h">„Hier stimmt einfach alles.“</p><p class="rev__t">Steffi &amp; das gesamte verSchmitzt SCHÖN-Team arbeiten mit Herz &amp; Kompetenz. Von der Begrüßung im hellen und modernen Studio, über die Behandlung mit professionellem Equipment bis zur individuellen fachlichen Beratung stimmt hier einfach alles.<br><br>Hier fühl ich mich wohl, hier fühle ich mich gut aufgehoben, hier komme ich gerne immer wieder hin!</p></blockquote>
+        <figcaption><span class="av">A</span><span><b>Anna H.</b><small>Google-Rezension · 5 Sterne</small></span></figcaption>
+      </figure>
+      <figure class="rev rv">
+        <div class="rev__top"><span class="stars" aria-label="5 von 5 Sternen"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></span><span class="label">Google</span></div>
+        <blockquote><p class="rev__h">„Auch an alle Männer, einfach mal ausprobieren.“</p><p class="rev__t">Ich war vor ein paar Monaten das erste Mal bei Steffi zum Aqua Facial, als Mann zuerst mit einer gewissen Skepsis. Inzwischen komme ich regelmäßig vorbei und genieße die kleine Auszeit und kann es echt nur weiterempfehlen. Auch an alle Männer, einfach mal ausprobieren.</p></blockquote>
+        <figcaption><span class="av">R</span><span><b>Ralf K.</b><small>Google-Rezension · 5 Sterne</small></span></figcaption>
+      </figure>
+      <figure class="rev rv">
+        <div class="rev__top"><span class="stars" aria-label="5 von 5 Sternen"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></span><span class="label">Google</span></div>
+        <blockquote><p class="rev__h">„Absolut empfehlenswert!“</p><p class="rev__t">Ich habe heute meine erste Gesichtsbehandlung bei der lieben Steffi erhalten. Neben einer super entspannten &amp; ruhigen Atmosphäre wurde ich sehr gut aufgeklärt bezüglich Pflege meiner Haut, Anwendung &amp; Wirkung von spezifischen Produkten. Die Beratung während der Behandlung habe ich als sehr angenehm empfunden &amp; habe mich generell sehr wohl gefühlt. Die Beratung war speziell auf meine Haut gerichtet &amp; dementsprechend wurden die Produkte gewählt. Absolut empfehlenswert! Ich freue mich auf den nächsten Termin! 😊</p></blockquote>
+        <figcaption><span class="av">S</span><span><b>Sandra M.</b><small>Google-Rezension · 5 Sterne</small></span></figcaption>
+      </figure>
+      <figure class="rev rv">
+        <div class="rev__top"><span class="stars" aria-label="5 von 5 Sternen"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></span><span class="label">Google</span></div>
+        <blockquote><p class="rev__h">„Absoluter Wohlfühlort!“</p><p class="rev__t">Sehr kompetente Beratung, Pflege und Versorgung. Es wird fachlich alles erläutert, sodass eine weiterführende Pflege zuhause mit den Behandlungen Hand in Hand geht. Es lohnt sich! Absoluter Wohlfühlort!</p></blockquote>
+        <figcaption><span class="av">I</span><span><b>Inga G.</b><small>Google-Rezension · 5 Sterne</small></span></figcaption>
+      </figure>
+    </div>
+    <div class="revs__dots" id="revsDots" aria-label="Bewertung wählen"></div>
+    <div class="revs__foot">
+      <a class="tlink" href="https://www.google.com/maps/search/?api=1&amp;query=verSchmitzt+SCH%C3%96N+Wadersloh&amp;query_place_id=ChIJq5779isrukcR6h2GfC2-PHM" target="_blank" rel="noopener">Alle Bewertungen auf Google lesen</a>
+      <span class="muted">Alle 26 Bewertungen mit 5 Sternen · Auszüge im Originalwortlaut</span>
+    </div>
+  </div>
+</section>
+
+<!-- VOUCHER -->
+<section class="vou" id="gutscheine" aria-label="Gutscheine">
+  <div class="wrap vou__g">
+    <div class="vou__card rv" id="vouCard">
+      <div class="vou__shine"></div>
+      <img src="img/logo-white.png" alt="" class="vou__logo">
+      <p class="label">Gutschein</p>
+      <p class="vou__t">Zeit für <em>mich.</em></p>
+      <div class="vou__row"><span>Für eine Behandlung deiner Wahl</span><b>verSchmitzt schön</b></div>
+    </div>
+    <div>
+      <p class="label">Das schönste Geschenk</p>
+      <h2 class="h2">Verschenk eine <em>Auszeit.</em></h2>
+      <p class="lead muted">Ob Weihnachten, Geburtstag oder einfach so: Mit einem Gutschein von verSchmitzt schön schenkst du Zeit, Ruhe und schöne Haut – als Wertgutschein oder für eine bestimmte Behandlung.</p>
+      <ul class="vou__list"><li>Bequem online über unseren Buchungskalender</li><li>Frei wählbarer Betrag oder Lieblingsbehandlung</li><li>Auch direkt bei uns im Studio erhältlich</li></ul>
+      <a href="https://www.planity.com/de-DE/verschmitzt-schon-59329-wadersloh" target="_blank" rel="noopener" class="btn">Gutschein verschenken <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- BEAUTY HILLS -->
+<section class="bh" id="beauty-hills" aria-label="Pflege mit Beauty Hills">
+  <div class="wrap">
+    <div class="bh__top">
+      <div class="bh__media rv">
+        <div class="main"><img src="img/bh-skin.webp" alt="Gepflegte, strahlende Haut" id="bhImg"></div>
+        <div class="float"><img src="img/bh-hydra.webp" alt="Beauty Hills Hydra Gel Komplex"></div>
+        <span class="bh__badge">Partnerinstitut</span>
+      </div>
+      <div>
+        <p class="label">Unsere Pflegemarke</p>
+        <h2 class="h2">Pflege mit System: <em>Beauty Hills.</em></h2>
+        <p class="lead muted">Im Studio und für zuhause arbeiten wir mit Beauty Hills Cosmetics – professionelle Hautpflege aus einem familiengeführten Unternehmen mit über 20 Jahren Erfahrung. Wissenschaftlich fundiert, dermatologisch getestet und mit dem Anspruch, nachhaltig zu wirtschaften.</p>
+        <div class="bh__stats">
+          <div><b><span class="odo" data-odo="1.800"></span></b><span>Kosmetikinstitute arbeiten mit Beauty Hills</span></div>
+          <div><b>20+</b><span>Jahre Erfahrung in der Hautpflege</span></div>
+          <div><b>Made in<br>Germany</b><span>entwickelt und produziert in Deutschland</span></div>
+          <div><b>5 Stufen</b><span>ein System, das jede Haut versteht</span></div>
+        </div>
+        <a href="#kontakt" class="btn btn--coral">Pflegeberatung anfragen <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <div class="bh__steps-h">
+      <p class="claim">Five Steps. One Routine. <em>Every Skin.</em></p>
+      <p class="muted" style="max-width:26rem">Das 5-Stufen-System von Beauty Hills – wir stellen deine Routine im Studio zusammen, damit sie zu Hause genauso wirkt.</p>
+    </div>
+    <p class="steps__hint">← Wischen für alle 5 Stufen →</p>
+    <div class="steps" id="steps">
+      <article class="step"><div class="step__n"><b>1</b><span class="label">Stufe</span></div><div class="step__img"><img src="img/bh-cleanser.webp" alt="Beauty Hills Cleanser" loading="lazy"></div><h4>Reinigung</h4><p>Porentief gereinigte, frische Haut – die Basis für jede weitere Pflege.</p></article>
+      <article class="step"><div class="step__n"><b>2</b><span class="label">Stufe</span></div><div class="step__img"><img src="img/bh-freshener.webp" alt="Beauty Hills Freshener" loading="lazy"></div><h4>Frische</h4><p>Ein ausgeglichenes, frisches Hautgefühl – und optimal vorbereitet.</p></article>
+      <article class="step"><div class="step__n"><b>3</b><span class="label">Stufe</span></div><div class="step__img"><img src="img/bh-aloe.webp" alt="Beauty Hills Aloe Vera Gel" loading="lazy"></div><h4>Feuchtig&shy;keit</h4><p>Intensive Feuchtigkeit für ein glatteres, straffer wirkendes Hautbild.</p></article>
+      <article class="step"><div class="step__n"><b>4</b><span class="label">Stufe</span></div><div class="step__img"><span class="step__ring">4</span></div><h4>Tiefen&shy;wirkung</h4><p>Gezielte Wirkstoffpflege für die individuellen Bedürfnisse deiner Haut.</p></article>
+      <article class="step"><div class="step__n"><b>5</b><span class="label">Stufe</span></div><div class="step__img"><span class="step__ring">5</span></div><h4>Abschluss&shy;pflege</h4><p>Der schützende, pflegende Abschluss deiner täglichen Routine.</p></article>
+    </div>
+    <div class="steps__dots" id="stepsDots" aria-label="Stufe wählen"></div>
+    <div class="bh__note rv">
+      <p><strong>Dein Vorteil:</strong> Wir kennen deine Haut – und empfehlen nur, was du wirklich brauchst. Deine Beauty Hills Produkte bekommst du direkt bei uns im Studio.</p>
+      <a href="#kontakt" class="btn btn--light">Routine zusammenstellen <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY (BYQ gem: curtain-image-reveal-01) -->
+<section class="gal2" id="studio" aria-label="Einblicke ins Studio">
+  <div class="wrap">
+    <div class="gal2__head">
+      <p class="label">Einblicke ins Studio</p>
+      <h2 class="h2">Echte Ergebnisse. <em>Echte Momente.</em></h2>
+      <p class="muted">Momente aus unserem Studio in Wadersloh. Noch mehr findest du auf <a class="tlink" href="https://www.instagram.com/verschmitzt_schoen/" target="_blank" rel="noopener">Instagram</a>.</p>
+    </div>
+    <div class="cir" id="cir">
+      <div class="cir__col"><figure class="cir-item" data-revealed="false" style="width:100%;--d:0s"><div class="cir-frame" style="clip-path:inset(0 100% 0 0);aspect-ratio:4 / 5"><img class="cir-img" src="img/brows-owner.webp" alt="Brow Mapping bei verSchmitzt schön" loading="lazy"></div><figcaption class="cir-caption"><span>NO. 01</span><span>Brow Mapping</span></figcaption></figure><figure class="cir-item" data-revealed="false" style="width:84%;align-self:flex-end;--d:0s"><div class="cir-frame" style="clip-path:inset(0 0 0 100%);aspect-ratio:1 / 1"><img class="cir-img" src="img/lash-lift.webp" alt="Lash Lift bei verSchmitzt schön" loading="lazy"></div><figcaption class="cir-caption"><span>NO. 02</span><span>Lash Lift</span></figcaption></figure><figure class="cir-item" data-revealed="false" style="width:100%;--d:0s"><div class="cir-frame" style="clip-path:inset(0 0 100% 0);aspect-ratio:3 / 4"><img class="cir-img" src="img/bridal-hair.webp" alt="Brautstyling bei verSchmitzt schön" loading="lazy"></div><figcaption class="cir-caption"><span>NO. 03</span><span>Brautstyling</span></figcaption></figure></div>
+      <div class="cir__col cir__col--b"><figure class="cir-item" data-revealed="false" style="width:84%;--d:0.12s"><div class="cir-frame" style="clip-path:inset(0 0 100% 0);aspect-ratio:3 / 4"><img class="cir-img" src="img/nails.webp" alt="Nails bei verSchmitzt schön" loading="lazy"></div><figcaption class="cir-caption"><span>NO. 04</span><span>Nails</span></figcaption></figure><figure class="cir-item" data-revealed="false" style="width:100%;--d:0.12s"><div class="cir-frame" style="clip-path:inset(0 100% 0 0);aspect-ratio:4 / 5"><img class="cir-img" src="img/green-peel.webp" alt="Green Peel bei verSchmitzt schön" loading="lazy"></div><figcaption class="cir-caption"><span>NO. 05</span><span>Green Peel</span></figcaption></figure><figure class="cir-item" data-revealed="false" style="width:100%;align-self:flex-end;--d:0.12s"><div class="cir-frame" style="clip-path:inset(0 0 0 100%);aspect-ratio:7 / 8"><img class="cir-img" src="img/brows-result.webp" alt="Brows bei verSchmitzt schön" loading="lazy"></div><figcaption class="cir-caption"><span>NO. 06</span><span>Brows</span></figcaption></figure></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" aria-label="Über mich">
+  <div class="wrap about__g">
+    <div class="about__img rv">
+      <div class="a"><img src="img/u-peel.webp" alt="Professionelle Gesichtsbehandlung" loading="lazy"></div>
+      <div class="b"><img src="img/owner-treat.webp" alt="Steffi bei einer Behandlung" loading="lazy"></div>
+    </div>
+    <div>
+      <p class="label muted">Hinter verSchmitzt schön</p>
+      <h2 class="h2">Steffi &amp; Team – <em>mit Herz für deine Haut.</em></h2>
+      <p class="lead">Wir nehmen uns Zeit, erklären, was deine Haut braucht – und empfehlen nur, was wirklich hilft.</p>
+      <p class="muted">Keine Behandlung nach Schema F, kein Verkaufsdruck. In unserem hellen, modernen Studio am Kirchplatz in Wadersloh kommst du an, schaltest ab und gehst mit einem guten Gefühl und einem klaren Plan für deine Haut nach Hause.</p>
+      <p class="sig">Steffi &amp; Team</p>
+      <div class="chips"><span>Hautanalyse</span><span>Aqua Facial</span><span>Microneedling</span><span>Green Peel</span><span>Lashes &amp; Brows</span><span>Hände &amp; Füße</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" aria-label="Häufige Fragen">
+  <div class="wrap faq__g">
+    <div>
+      <p class="label muted">Gut zu wissen</p>
+      <h2 class="h2">Häufige <em>Fragen.</em></h2>
+    </div>
+    <div>
+      <div class="acc open"><button aria-expanded="true">Wie läuft meine erste Behandlung ab?<span class="pm"></span></button><div class="acc__p"><div><p>Du startest mit unserer Neukunden-Behandlung „gut gepflegt Starter“ (75 Min., 79 €). Wir analysieren deine Haut, schauen uns deine Pflegeroutine an und verwöhnen dich mit Reinigung, Peeling, Ausreinigung, Maske und Pflege. Danach erstellen wir gemeinsam deinen Pflegeplan.</p></div></div></div>
+      <div class="acc"><button aria-expanded="false">Wie oft sollte ich zur Kosmetik kommen?<span class="pm"></span></button><div class="acc__p"><div><p>Das hängt von deiner Haut und deinen Zielen ab. In deinem persönlichen Pflegeplan legen wir einen sinnvollen Rhythmus fest – ehrlich und ohne unnötige Termine.</p></div></div></div>
+      <div class="acc"><button aria-expanded="false">Welche Produkte verwendet ihr?<span class="pm"></span></button><div class="acc__p"><div><p>Wir arbeiten mit dem 5-Stufen-System von Beauty Hills Cosmetics – professionelle Pflege Made in Germany. Deine Pflege für zuhause stellen wir passend zu Ihrer Behandlung zusammen.</p></div></div></div>
+      <div class="acc"><button aria-expanded="false">Wie buche ich einen Termin?<span class="pm"></span></button><div class="acc__p"><div><p>Am schnellsten online: Freie Termine siehst du rund um die Uhr in unserem Online-Kalender. Alternativ erreichst du uns per Telefon unter 02523 / 919 03 75 oder per WhatsApp.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="ct dark" id="kontakt" aria-label="Kontakt und Terminanfrage">
+  <div class="wrap">
+    <div class="ct__g">
+      <div class="rv">
+        <p class="label">Termin buchen</p>
+        <h2 class="h2">Gönn deiner Haut <em>eine Auszeit.</em></h2>
+        <p class="lead muted">Wähl deinen Wunschtermin direkt online – oder schreib uns, wenn du vorher eine Frage hast.</p>
+        <p style="margin-top:1.8rem"><a href="https://www.planity.com/de-DE/verschmitzt-schon-59329-wadersloh" target="_blank" rel="noopener" class="btn btn--champ">Freie Termine ansehen <span class="arr">→</span></a></p>
+        <div class="info">
+          <div><h5>Studio</h5><p>verSchmitzt schön<br>Kirchplatz 9<br>59329 Wadersloh</p></div>
+          <div><h5>Kontakt</h5><p><a href="tel:+4925239190375">02523 / 919 03 75</a><br><a href="tel:+4917630633736">0176 / 306 337 36</a><br><a href="mailto:info@verschmitzt-schoen.de">info@verschmitzt-schoen.de</a></p></div>
+          <div><h5>Beratung &amp; Verkauf</h5><p>Mo &amp; Fr: 10:30–12:30 &amp; 16:30–18:30<br>Sa: 10:30–12:30</p></div>
+          <div><h5>Behandlungen</h5><p>Nach Termin – rund um die Uhr <a href="https://www.planity.com/de-DE/verschmitzt-schon-59329-wadersloh" target="_blank" rel="noopener" style="text-decoration:underline">online buchbar</a></p></div>
+        </div>
+        <a class="wa" href="https://wa.me/4917630633736" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.6-1.5-3.3-1.5-5.2C2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zm8.4-18.2C18.1 1.3 15.2.1 12 .1 5.5.1.2 5.4.2 11.9c0 2.1.5 4.1 1.6 5.9L.1 24l6.3-1.7c1.7.9 3.7 1.4 5.6 1.4 6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.4-8.3z"/></svg> Lieber per WhatsApp schreiben</a>
+      </div>
+      <form class="form rv" id="form" novalidate>
+        <div class="form__f">
+          <h3>Lieber erst eine Frage?</h3>
+          <p>Schreib uns – wir melden uns persönlich bei dir.</p>
+          <div class="row2">
+            <label class="fld"><span>Name</span><input name="name" required autocomplete="name"></label>
+            <label class="fld"><span>Telefon</span><input name="phone" type="tel" autocomplete="tel"></label>
+          </div>
+          <label class="fld"><span>E-Mail</span><input name="email" type="email" required autocomplete="email"></label>
+          <label class="fld"><span>Thema</span>
+            <select name="service">
+              <option>Neukunden-Behandlung</option>
+              <option>Aqua Facial</option>
+              <option>Microneedling</option>
+              <option>Green Peel &amp; Fruchtsäure</option>
+              <option>Wimpern &amp; Augenbrauen</option>
+              <option>Hände &amp; Füße</option>
+              <option>Pflegeberatung Beauty Hills</option>
+              <option>Gutschein</option>
+              <option>Sonstiges</option>
+            </select>
+          </label>
+          <label class="fld"><span>Nachricht (optional)</span><textarea name="message" placeholder="Wunschtermin, Hautthema, Anlass …"></textarea></label>
+          <button class="btn btn--light" type="submit">Nachricht senden <span class="arr">→</span></button>
+        </div>
+        <div class="form__ok"><b>Danke!</b><p class="muted">In der fertigen Webseite geht deine Anfrage jetzt direkt an das Studio. (Konzept-Vorschau – es wurde nichts gesendet.)</p></div>
+      </form>
+    </div>
+    <div class="big" aria-hidden="true"><span data-fit>VERSCHMITZT SCHÖN</span></div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap ftr__in">
+    <img src="img/logo-white.png" alt="verSchmitzt schön">
+    <nav><a href="#leistungen">Leistungen</a><a href="#beauty-hills">Beauty Hills</a><a href="https://verschmitzt-schoen.de/onlineshop" target="_blank" rel="noopener">Onlineshop</a><a href="https://verschmitzt-schoen.de/impressum" target="_blank" rel="noopener">Impressum</a><a href="https://verschmitzt-schoen.de/datenschutzerklaerung" target="_blank" rel="noopener">Datenschutz</a></nav>
+    <span class="bhp"><i></i>Partnerinstitut von Beauty Hills Cosmetics</span>
+  </div>
+</footer>
+
+<div class="mcta" id="mcta">
+  <a href="https://www.planity.com/de-DE/verschmitzt-schon-59329-wadersloh" target="_blank" rel="noopener" class="btn btn--champ">Online buchen <span class="arr">→</span></a>
+  <a href="https://wa.me/4917630633736" class="btn wa-b" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.6-1.5-3.3-1.5-5.2C2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zm8.4-18.2C18.1 1.3 15.2.1 12 .1 5.5.1.2 5.4.2 11.9c0 2.1.5 4.1 1.6 5.9L.1 24l6.3-1.7c1.7.9 3.7 1.4 5.6 1.4 6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.4-8.3z"/></svg></a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+document.body.classList.remove('no-js');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+const hasGsap = typeof window.gsap !== 'undefined';
+if (hasGsap) gsap.registerPlugin(ScrollTrigger);
+
+/* header: solid after hero start, hide on scroll down */
+(() => {
+  const hdr = document.getElementById('hdr'), mcta = document.getElementById('mcta');
+  let last = scrollY;
+  const onScroll = () => {
+    const y = scrollY;
+    hdr.classList.toggle('is-solid', y > 40);
+    const menuOpen = document.getElementById('mnav').classList.contains('open');
+    hdr.classList.toggle('is-hidden', !menuOpen && y > 600 && y > last + 2);
+    if (y < last - 2) hdr.classList.remove('is-hidden');
+    mcta.classList.toggle('show', y > innerHeight * .7);
+    last = y;
+  };
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  const b = document.getElementById('burger'), m = document.getElementById('mnav');
+  b.addEventListener('click', () => {
+    const o = m.classList.toggle('open'); b.querySelector('.burger__t').textContent = o ? 'Schließen' : 'Menü'; b.setAttribute('aria-expanded', o);
+    hdr.classList.toggle('menu', o); hdr.classList.remove('is-hidden');
+    document.body.style.overflow = o ? 'hidden' : '';
+  });
+  m.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { m.classList.remove('open'); b.querySelector('.burger__t').textContent = 'Menü'; hdr.classList.remove('menu'); b.setAttribute('aria-expanded', false); document.body.style.overflow=''; }));
+})();
+
+/* reveal */
+(() => {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:0, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rv').forEach((el, i) => { el.style.transitionDelay = (el.parentElement.classList.contains('steps') || el.parentElement.classList.contains('facts')) ? (Array.from(el.parentElement.children).indexOf(el) * 90) + 'ms' : '0ms'; io.observe(el); });
+})();
+
+/* hero floating cards: entrance + pointer parallax + scroll drift */
+(() => {
+  const cards = document.querySelectorAll('.fc');
+  if (!hasGsap || reduce.matches) return;
+  gsap.from(cards, {y: 60, opacity: 0, scale: .92, duration: 1.4, ease: 'power3.out', stagger: .08, delay: .1});
+  cards.forEach(c => {
+    const d = parseFloat(c.dataset.depth || 1);
+    gsap.to(c, {yPercent: -40 * d, ease: 'none', scrollTrigger: {trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .6}});
+  });
+  if (matchMedia('(hover:hover) and (pointer:fine)').matches) {
+    const hero = document.querySelector('.hero');
+    const setters = Array.from(cards).map(c => ({x: gsap.quickTo(c, 'x', {duration: 1.2, ease: 'power3.out'}), y: gsap.quickTo(c, 'y', {duration: 1.2, ease: 'power3.out'}), d: parseFloat(c.dataset.depth||1)}));
+    hero.addEventListener('pointermove', e => {
+      const r = hero.getBoundingClientRect(); const nx = (e.clientX - r.left) / r.width - .5, ny = (e.clientY - r.top) / r.height - .5;
+      setters.forEach(s => { s.x(nx * -36 * s.d); s.y(ny * -26 * s.d); });
+    });
+  }
+})();
+
+/* BYQ gem: scroll-blur-reveal-01 (motion values verbatim) */
+(() => {
+  const text = document.getElementById('sbr'); if (!text) return;
+  const wrapWords = el => { const words = []; Array.from(el.childNodes).forEach(node => {
+    if (node.nodeType === 1) { words.push(...wrapWords(node)); return; }
+    if (node.nodeType !== 3) return; const frag = document.createDocumentFragment();
+    node.textContent.split(/(\s+)/).forEach(p => { if (!p) return; if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(' ')); return; } const s = document.createElement('span'); s.className = 'sbr-word'; s.textContent = p; frag.appendChild(s); words.push(s); });
+    el.replaceChild(frag, node); }); return words; };
+  const words = wrapWords(text);
+  if (!hasGsap || reduce.matches || !words.length) return;
+  gsap.set(words, {opacity: .12, filter: 'blur(10px)', y: '0.3em'});
+  gsap.set(text, {transformOrigin: '0% 50%', rotate: 2.5});
+  gsap.to(text, {rotate: 0, ease: 'none', scrollTrigger: {trigger: text, start: 'top bottom', end: 'top 40%', scrub: .6}});
+  gsap.timeline({scrollTrigger: {trigger: text, start: 'top 92%', end: 'bottom 85%', scrub: .6}})
+    .to(words, {opacity: 1, filter: 'blur(0px)', y: 0, duration: 1, ease: 'power1.out', stagger: .16});
+})();
+
+/* BYQ gem: sticky-media-swap-01 (motion values verbatim) */
+(() => {
+  const root = document.getElementById('sms'); if (!root || !hasGsap) return;
+  const steps = root.querySelectorAll('.sms__step'), entries = root.querySelectorAll('.sms__entry'), medias = root.querySelectorAll('.sms__frame img'), cap = document.getElementById('smsCap');
+  const FULL = 'inset(0% 0% 0% 0%)'; let current = 0, swaps = 0;
+  medias.forEach((img, i) => gsap.set(img, {autoAlpha: i === 0 ? 1 : 0, zIndex: i === 0 ? 1 : 0, clipPath: FULL}));
+  const mark = i => { entries.forEach((e, k) => e.classList.toggle('is-active', k === i)); cap.textContent = String(i+1).padStart(2,'0') + ' / 04'; };
+  const swapTo = index => {
+    if (index === current) return; const incoming = medias[index], outgoing = medias[current]; current = index; mark(index);
+    gsap.killTweensOf(medias);
+    if (reduce.matches) { medias.forEach((img, i) => gsap.set(img, {autoAlpha: i === index ? 1 : 0, zIndex: i === index ? 1 : 0, clipPath: FULL, yPercent: 0, scale: 1})); return; }
+    swaps += 1; const fromTop = swaps % 2 === 1;
+    medias.forEach(img => { if (img !== incoming && img !== outgoing) gsap.set(img, {autoAlpha: 0, zIndex: 0, yPercent: 0, scale: 1}); });
+    gsap.set(outgoing, {zIndex: 1, autoAlpha: 1, clipPath: FULL});
+    gsap.set(incoming, {zIndex: 2, autoAlpha: 1, yPercent: 0, scale: 1.12, clipPath: fromTop ? 'inset(0% 0% 100% 0%)' : 'inset(100% 0% 0% 0%)'});
+    gsap.timeline({defaults: {duration: .85, ease: 'power3.inOut'}})
+      .to(incoming, {clipPath: FULL}, 0)
+      .to(incoming, {scale: 1, duration: 1.25, ease: 'power2.out'}, 0)
+      .to(outgoing, {yPercent: fromTop ? 7 : -7, scale: 1.05}, 0)
+      .set(outgoing, {autoAlpha: 0, zIndex: 0, yPercent: 0, scale: 1});
+  };
+  ScrollTrigger.matchMedia({'(min-width: 769px)': () => {
+    steps.forEach((step, i) => ScrollTrigger.create({trigger: step, start: 'top center', end: 'bottom center', onToggle: self => { if (self.isActive) swapTo(i); }}));
+  }});
+  entries.forEach((e, i) => e.addEventListener('click', () => steps[i].scrollIntoView({behavior: reduce.matches ? 'auto' : 'smooth', block: 'center'})));
+})();
+
+/* BYQ gem: hover-peek-list-01 (motion values verbatim) */
+(() => {
+  const root = document.getElementById('hpl'); if (!root) return;
+  const peek = root.querySelector('.hpl-peek'), imgs = root.querySelectorAll('.hpl-peek-img'), rows = root.querySelectorAll('.hpl-row'), list = root.querySelector('.hpl-list');
+  const fine = matchMedia('(hover: hover) and (pointer: fine)');
+  let tx = 0, ty = 0, rx = 0, ry = 0, lastRx = 0, active = false, raf = 0;
+  const setImg = idx => imgs.forEach((img, i) => { img.style.opacity = i === idx ? '1' : '0'; img.style.transform = i === idx ? 'scale(1)' : 'scale(1.08)'; });
+  const place = (x, y) => { const r = root.getBoundingClientRect(); tx = x - r.left; ty = y - r.top; };
+  const loop = () => { rx += (tx - rx) * .16; ry += (ty - ry) * .16; const vel = rx - lastRx; lastRx = rx; const tilt = Math.max(-8, Math.min(8, vel * .6));
+    peek.style.setProperty('--px', rx + 'px'); peek.style.setProperty('--py', ry + 'px'); peek.style.setProperty('--tilt', tilt + 'deg'); if (active) raf = requestAnimationFrame(loop); };
+  const start = (x, y) => { if (!fine.matches) return; place(x, y); if (!active) { rx = tx; ry = ty; lastRx = rx; active = true; root.classList.add('is-peeking'); peek.classList.add('is-peeking');
+    if (reduce.matches) { peek.style.setProperty('--px', rx + 'px'); peek.style.setProperty('--py', ry + 'px'); } else raf = requestAnimationFrame(loop); } };
+  const stop = () => { active = false; cancelAnimationFrame(raf); root.classList.remove('is-peeking'); peek.classList.remove('is-peeking'); };
+  rows.forEach((row, i) => {
+    row.addEventListener('pointerenter', e => { if (e.pointerType !== 'mouse') return; setImg(i); start(e.clientX, e.clientY); });
+    row.addEventListener('pointermove', e => { if (e.pointerType !== 'mouse') return; place(e.clientX, e.clientY); if (reduce.matches && active) { peek.style.setProperty('--px', tx + 'px'); peek.style.setProperty('--py', ty + 'px'); } });
+    row.querySelector('a').addEventListener('focus', () => setImg(i));
+  });
+  list.addEventListener('pointerleave', stop);
+})();
+
+/* Beauty Hills image parallax + odometer (after BYQ gem odometer-counter-01) */
+(() => {
+  if (hasGsap && !reduce.matches) {
+    gsap.fromTo('#bhImg', {yPercent: -6}, {yPercent: 6, ease: 'none', scrollTrigger: {trigger: '.bh__media', start: 'top bottom', end: 'bottom top', scrub: .6}});
+    gsap.from('.pol', {y: 120, rotate: 0, opacity: 0, duration: 1.3, ease: 'power3.out', stagger: .12, scrollTrigger: {trigger: '#gal', start: 'top 75%'}, clearProps: 'transform,opacity'});
+  }
+  document.querySelectorAll('.odo').forEach(el => {
+    const val = el.dataset.odo; const cols = [];
+    for (const ch of val) {
+      if (/\d/.test(ch)) { const c = document.createElement('span'); c.className = 'odo__col'; for (let r = 0; r < 3; r++) for (let d = 0; d <= 9; d++) { const s = document.createElement('span'); s.textContent = d; c.appendChild(s); } c.dataset.t = 20 + +ch; el.appendChild(c); cols.push(c); }
+      else { const s = document.createElement('span'); s.textContent = ch; el.appendChild(s); }
+    }
+    el.setAttribute('aria-label', val);
+    const run = () => { cols.forEach((c, i) => { c.style.transitionDelay = (i * 120) + 'ms'; c.style.transform = `translateY(-${c.dataset.t}em)`; }); setTimeout(() => { el.classList.add('done'); el.textContent = val; }, reduce.matches ? 0 : 2400); };
+    if (reduce.matches) { cols.forEach(c => { c.style.transition = 'none'; }); run(); return; }
+    const io = new IntersectionObserver(es => { if (es[0].isIntersecting) { run(); io.disconnect(); } }, {threshold: .6}); io.observe(el);
+  });
+})();
+
+
+/* mobile snap sliders with dots (Beauty Hills steps, reviews) */
+function snapSlider(scId, dotsId, label) {
+  const sc = document.getElementById(scId), dots = document.getElementById(dotsId); if (!sc || !dots) return;
+  const cards = Array.from(sc.children);
+  cards.forEach((c, i) => { const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', label + ' ' + (i+1)); b.addEventListener('click', () => sc.scrollTo({left: c.offsetLeft - cards[0].offsetLeft, behavior: reduce.matches ? 'auto' : 'smooth'})); dots.appendChild(b); });
+  const upd = () => { const base = cards[0].offsetLeft; let best = 0, d = 1e9; cards.forEach((c, i) => { const dd = Math.abs(c.offsetLeft - base - sc.scrollLeft); if (dd < d) { d = dd; best = i; } }); if (sc.scrollLeft + sc.clientWidth >= sc.scrollWidth - 4) best = cards.length - 1; dots.querySelectorAll('button').forEach((b, i) => b.classList.toggle('on', i === best)); };
+  sc.addEventListener('scroll', () => requestAnimationFrame(upd), {passive: true}); addEventListener('resize', upd); upd();
+}
+snapSlider('steps', 'stepsDots', 'Stufe');
+snapSlider('revs', 'revsDots', 'Bewertung');
+
+
+/* image break parallax + voucher tilt */
+(() => {
+  if (hasGsap && !reduce.matches) gsap.fromTo('#brkImg', {yPercent: -12}, {yPercent: 0, ease: 'none', scrollTrigger: {trigger: '.brk', start: 'top bottom', end: 'bottom top', scrub: .6}});
+  const c = document.getElementById('vouCard'); if (!c || reduce.matches || !matchMedia('(hover:hover)').matches) return;
+  c.addEventListener('pointermove', e => { const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height; c.style.setProperty('--ry', ((x - .5) * 10) + 'deg'); c.style.setProperty('--rx', ((.5 - y) * 8) + 'deg'); c.style.setProperty('--mx', (x*100) + '%'); c.style.setProperty('--my', (y*100) + '%'); });
+  c.addEventListener('pointerleave', () => { c.style.setProperty('--rx', '0deg'); c.style.setProperty('--ry', '0deg'); });
+})();
+
+
+/* BOLD: fit wordmark lines, letter rise, hero parallax, grow-to-full image, curtain reveal */
+(() => {
+  const fit = () => {
+    document.querySelectorAll('[data-fit]').forEach(el => {
+      el.style.fontSize = '100px'; el.style.width = 'max-content';
+      const w = el.parentElement.clientWidth, sw = el.getBoundingClientRect().width || 1;
+      el.style.width = ''; el.style.fontSize = (100 * w / sw * 0.985) + 'px';
+    });
+    const a = document.querySelector('.wm'), b = document.querySelector('.wm--2'); if (a && b) b.style.fontSize = a.style.fontSize;
+  };
+  document.querySelectorAll('[data-fit]').forEach(el => { const t = el.textContent; el.textContent = ''; [...t].forEach(ch => { const sp = document.createElement('span'); sp.className = 'wm-ch'; sp.textContent = ch === ' ' ? '\u00a0' : ch; el.appendChild(sp); }); });
+  fit(); addEventListener('resize', fit); if (document.fonts) document.fonts.ready.then(fit);
+  if (hasGsap && !reduce.matches) {
+    gsap.from('.wm-ch', {yPercent: 110, opacity: 0, duration: 1.1, ease: 'power4.out', stagger: .035, delay: .15});
+    gsap.from('.hero__intro > *', {y: 30, opacity: 0, duration: 1, ease: 'power3.out', stagger: .1, delay: .5});
+    gsap.to('#heroImg', {yPercent: -10, scale: 1.08, ease: 'none', scrollTrigger: {trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .5}});
+    gsap.to('.wordmark', {yPercent: -18, ease: 'none', scrollTrigger: {trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .5}});
+    const m = document.querySelector('.brk__media');
+    if (m) gsap.fromTo(m, {'--brk-x': '6%', '--brk-r': '28px'}, {'--brk-x': '0%', '--brk-r': '0px', ease: 'none', scrollTrigger: {trigger: '.brk', start: 'top 85%', end: 'top 10%', scrub: .6}});
+  }
+  // BYQ gem curtain-image-reveal-01 (timings verbatim)
+  const items = [...document.querySelectorAll('.cir-item')]; if (!items.length) return;
+  const reveal = it => it.setAttribute('data-revealed', 'true');
+  if (reduce.matches) { items.forEach(reveal); return; }
+  const above = [], below = [];
+  items.forEach(it => { const r = it.getBoundingClientRect(); (r.top < innerHeight * .92 && r.bottom > 0 ? above : below).push(it); });
+  above.sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top).forEach((it, i) => { it.style.setProperty('--d', (i * .16).toFixed(2) + 's'); reveal(it); });
+  const io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; reveal(e.target); io.unobserve(e.target); }), {threshold: .25});
+  below.forEach(it => io.observe(it));
+})();
+
+
+/* rotating google quotes in image break */
+(() => {
+  const sl = [...document.querySelectorAll('#brkSlides .brk__s')], dots = [...document.querySelectorAll('#brkDots button')]; if (!sl.length) return;
+  let i = 0, t;
+  const show = n => { i = (n + sl.length) % sl.length; sl.forEach((s, k) => s.classList.toggle('is-on', k === i)); dots.forEach((d, k) => { d.classList.remove('on'); d.classList.toggle('done', k < i); void d.offsetWidth; if (k === i) d.classList.add('on'); }); clearTimeout(t); if (!reduce.matches) t = setTimeout(() => show(i + 1), 5500); };
+  dots.forEach((d, k) => d.addEventListener('click', () => show(k)));
+  show(0);
+})();
+
+/* FAQ accordion – one open at a time */
+document.querySelectorAll('.acc button').forEach(btn => btn.addEventListener('click', () => {
+  const acc = btn.parentElement, open = !acc.classList.contains('open');
+  document.querySelectorAll('.acc').forEach(a => { a.classList.remove('open'); a.querySelector('button').setAttribute('aria-expanded', 'false'); });
+  if (open) { acc.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+}));
+
+/* form (preview only) */
+document.getElementById('form').addEventListener('submit', e => {
+  e.preventDefault(); const f = e.currentTarget;
+  const ok = f.name.value.trim() && /\S+@\S+\.\S+/.test(f.email.value);
+  if (!ok) { [f.name, f.email].forEach(i => { if (!i.value.trim() || (i.type === 'email' && !/\S+@\S+\.\S+/.test(i.value))) i.style.borderColor = '#e4664f'; }); return; }
+  f.classList.add('sent');
+});
+addEventListener('load', () => hasGsap && ScrollTrigger.refresh());
+</script>
+</body>
+</html>
