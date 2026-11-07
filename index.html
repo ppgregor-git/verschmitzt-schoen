@@ -1408,7 +1408,9 @@ addEventListener('load', () => hasGsap && ScrollTrigger.refresh());
     const box=meter.getBBox(); meter.setAttribute('y',h/2+(h/2-(box.y+box.height/2)));
     for(const a of ['font-size','x','y']) cut.setAttribute(a, meter.getAttribute(a));
     const clampS=9000/fs, o=meter.getExtentOfChar(APERTURE);
-    let counter=null; try{counter=scanCounter(o,fs,parseFloat(meter.getAttribute('y')))}catch(e){counter=null}
+    // Counter of Archivo 900 / 125% "O", measured once in Chrome and stored as ratios of the glyph cell.
+    // Safari's canvas ignores font-stretch, so a live raster scan would measure the narrow cut and miss the counter.
+    let counter = (o && o.width > 0) ? {cx:o.x+o.width*.533, cy:o.y+o.height*.4908, a:o.width*.216, b:o.height*.1685} : null;
     if(counter){
       apertureFound=true; stageW=w; stageH=h; cxU=counter.cx; cyU=counter.cy;
       aU=counter.a*.78; bU=counter.b*.78; dKx=(w/2)*1.45; dKy=(h/2)*1.45;
